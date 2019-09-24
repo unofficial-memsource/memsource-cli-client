@@ -155,21 +155,20 @@ And that's it!
 This way you can configure your username/password and set up memsource token for faster authentication:
 
 ```
+source ${HOME}/git/memsource-cli-client/.memsource/bin/activate
 export MEMSOURCE_USERNAME=<username>
 export MEMSOURCE_PASSWORD=<password>
 export MEMSOURCE_TOKEN=$(memsource auth login --user-name $MEMSOURCE_USERNAME --password "${MEMSOURCE_PASSWORD}" -c token -f value)
-source ${HOME}/git/memsource-cli-client/.memsource/bin/activate
 ```
 
 Or you can create a file:
 
+Edit file with `vi ~/.memsourcerc` and paste following content:
 ```
-vi ~/.memsourcerc
-
+source ${HOME}/git/memsource-cli-client/.memsource/bin/activate
 export MEMSOURCE_USERNAME=<username>
 export MEMSOURCE_PASSWORD=<password>
 export MEMSOURCE_TOKEN=$(memsource auth login --user-name $MEMSOURCE_USERNAME --password "${MEMSOURCE_PASSWORD}" -c token -f value)
-source ${HOME}/git/memsource-cli-client/.memsource/bin/activate
 ```
 
 Then only source that file to start using memsource-cli:
