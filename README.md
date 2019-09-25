@@ -12,6 +12,7 @@
 
 - [Introduction](#introduction)
 - [Highlights](#highlights)
+- [What's new](#whatsnew)
 - [How does it looks like?](#how-does-it-looks-like)
 - [Collaborate](#collaborate)
 - [Usage](#usage)
@@ -41,6 +42,30 @@ Framework will download additional packages:
 - python-dateutil>=2.1
 - six>=1.10
 - urllib3>=1.23
+
+<a id="markdown-whatsnew" name="whatsnew"></a>
+## What's new
+
+This release candidate 0.2rc contains features such as:
+
+- Create analysis
+- Delete analysis
+- Create analyses by languages
+- List analyses by project
+- Get Analysis
+- Login
+- Who am I
+- Creates job in project
+- Delete jobs
+- List jobs in project
+- Get job
+- Create new project
+- Deletes a project
+- List projects
+- Get project
+- Create new project from template
+- Create user
+- Get user
 
 <a id="markdown-how-does-it-looks-like" name="how-does-it-looks-like"></a>
 ## How does it looks like?
