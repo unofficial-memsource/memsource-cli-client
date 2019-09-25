@@ -11,7 +11,7 @@ if __name__ == "__main__":
         keywords='memsource',
         url="",
         author="Robin Cernin",
-        author_email="robininthecloud@gmail.com",
+        author_email="r9n.developer@gmail.com",
         packages=find_packages(),
         include_package_data=True,
         install_requires=[
