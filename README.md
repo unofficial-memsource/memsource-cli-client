@@ -54,16 +54,16 @@ This release candidate 0.2rc contains features such as:
 - Create analyses by languages
 - List analyses by project
 - Get Analysis
-- Login
-- Who am I
+- [Login](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Auth#login)
+- [Who Am I](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Auth#whoami)
 - Creates job in project
 - Delete jobs
 - List jobs in project
 - Get job
-- Create new project
-- Deletes a project
-- List projects
-- Get project
+- [Create new project](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Project#project-create)
+- [Deletes a project](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Project#project-delete)
+- [List projects](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Project#project-list)
+- [Get project](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Project#project-show)
 - Create new project from template
 - Create user
 - Get user
@@ -223,4 +223,9 @@ Now you should be fine to use `memsource`
 <a id="markdown-contact" name="contact-us"></a>
 ## Contact us!
 
-This project is maintained on Github. Please contact us by submitting [issue](#collaborate)
+This project is maintained on Github.
+- Please contact us by submitting [issue](#collaborate)
+- Feel free to join our [Unofficial Memsource CLI Telegram Group](https://t.me/Unofficial_MemsourceCLI)
+- Check out our [wiki](https://github.com/unofficial-memsource/memsource-cli-client/wiki/) !
+
+
