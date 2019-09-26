@@ -49,24 +49,24 @@ Framework will download additional packages:
 
 This release candidate 0.2rc contains features such as:
 
-- Create analysis
-- Delete analysis
-- Create analyses by languages
-- List analyses by project
-- Get Analysis
+- [Create analysis](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Analysis#analyse-create)
+- [Delete analysis](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Analysis#analyse-delete)
+- [Create analyses by languages](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Analysis#analyse-language-create)
+- [List analyses by project](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Analysis#analyse-project-list)
+- [Get Analysis](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Analysis#analyse-show)
 - [Login](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Auth#login)
 - [Who Am I](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Auth#whoami)
-- Creates job in project
-- Delete jobs
-- List jobs in project
-- Get job
+- [Creates job in project](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-create)
+- [Delete job](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-delete)
+- [List jobs in project](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-list)
+- [Get job](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-show)
 - [Create new project](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Project#project-create)
 - [Deletes a project](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Project#project-delete)
 - [List projects](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Project#project-list)
 - [Get project](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Project#project-show)
-- Create new project from template
-- Create user
-- Get user
+- [Create new project from template](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Project#project-template-create)
+- [Create user](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-User#user-create)
+- [Get user](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-User#user-get)
 
 <a id="markdown-how-does-it-looks-like" name="how-does-it-looks-like"></a>
 ## How does it looks like?
