@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 PROJECT = 'memsource_cli'
-VERSION = '0.2rc0'
+VERSION = '0.2rc2'
 
 if __name__ == "__main__":
     setup(
@@ -15,12 +15,12 @@ if __name__ == "__main__":
         packages=find_packages(),
         include_package_data=True,
         install_requires=[
-	    'requests',
             'cliff',
             'certifi>=2017.4.17',
             'python-dateutil>=2.1',
             'six>=1.10',
-            'urllib3>=1.23'
+            'urllib3>=1.23',
+	    'requests'
         ],
         entry_points={
             'console_scripts': [
