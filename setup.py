@@ -1,16 +1,21 @@
 from setuptools import setup, find_packages
 
 PROJECT = 'memsource_cli'
-VERSION = '0.2rc2'
+VERSION = '0.2rc3'
 
 if __name__ == "__main__":
+
+    with open('README.md') as f:
+        long_description = f.read()
+
     setup(
         name=PROJECT,
         version=VERSION,
         description="Unofficial Memsource CLI client",
+        long_description=long_description,
         keywords='memsource',
-        url="",
-        author="Robin Cernin",
+        url="https://github.com/unofficial-memsource/memsource-cli-client",
+        author="Robin Černín",
         author_email="r9n.developer@gmail.com",
         packages=find_packages(),
         include_package_data=True,
