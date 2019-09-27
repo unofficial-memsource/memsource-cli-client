@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 PROJECT = 'memsource_cli'
-VERSION = '0.2rc3'
+VERSION = '0.9'
 
 if __name__ == "__main__":
 
@@ -17,7 +17,7 @@ if __name__ == "__main__":
         keywords='memsource',
         url="https://github.com/unofficial-memsource/memsource-cli-client",
         author="Robin Černín",
-        author_email="r9n.developer@gmail.com",
+        author_email="cerninr@gmail.com"
         packages=find_packages(),
         include_package_data=True,
         install_requires=[
