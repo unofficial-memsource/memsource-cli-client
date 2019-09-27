@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 PROJECT = 'memsource_cli'
-VERSION = '0.9'
+VERSION = '0.2'
 
 if __name__ == "__main__":
 
