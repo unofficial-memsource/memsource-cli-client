@@ -3,6 +3,7 @@
 ![GitHub](https://img.shields.io/github/license/unofficial-memsource/memsource-cli-client)
 [![Coverage Status](https://coveralls.io/repos/github/unofficial-memsource/memsource-cli-client/badge.svg?branch=master)](https://coveralls.io/github/unofficial-memsource/memsource-cli-client?branch=master)
 [![Build Status](https://travis-ci.com/unofficial-memsource/memsource-cli-client.svg?branch=master)](https://travis-ci.com/unofficial-memsource/memsource-cli-client)
+[![PyPI version](https://badge.fury.io/py/memsource-cli.svg)](https://badge.fury.io/py/memsource-cli)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/unofficial-memsource/memsource-cli-client)
 <a href="https://t.me/Unofficial_MemsourceCLI"><img src="https://img.shields.io/badge/Telegram-Unofficial Memsource CLI Telegram Group-blue?logo=telegram" alt="Unofficial Memsource CLI Telegram Group"></a>
 
