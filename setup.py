@@ -1,13 +1,13 @@
 from setuptools import setup, find_packages
 
 PROJECT = 'memsource_cli'
-VERSION = '0.2rc'
+VERSION = '0.2rc0'
 
 if __name__ == "__main__":
     setup(
         name=PROJECT,
         version=VERSION,
-        description="Memsource CLI client",
+        description="Unofficial Memsource CLI client",
         keywords='memsource',
         url="",
         author="Robin Cernin",
@@ -15,6 +15,7 @@ if __name__ == "__main__":
         packages=find_packages(),
         include_package_data=True,
         install_requires=[
+	    'requests',
             'cliff',
             'certifi>=2017.4.17',
             'python-dateutil>=2.1',
