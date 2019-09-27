@@ -17,7 +17,7 @@ if __name__ == "__main__":
         keywords='memsource',
         url="https://github.com/unofficial-memsource/memsource-cli-client",
         author="Robin Černín",
-        author_email="cerninr@gmail.com"
+        author_email="cerninr@gmail.com",
         packages=find_packages(),
         include_package_data=True,
         install_requires=[
