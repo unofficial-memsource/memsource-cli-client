@@ -13,6 +13,7 @@ if __name__ == "__main__":
         version=VERSION,
         description="Unofficial Memsource CLI client",
         long_description=long_description,
+	long_description_content_type="text/markdown",
         keywords='memsource',
         url="https://github.com/unofficial-memsource/memsource-cli-client",
         author="Robin Černín",
