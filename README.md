@@ -6,6 +6,7 @@
 [![PyPI version](https://badge.fury.io/py/memsource-cli.svg)](https://badge.fury.io/py/memsource-cli)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/unofficial-memsource/memsource-cli-client)
 <a href="https://t.me/Unofficial_MemsourceCLI"><img src="https://img.shields.io/badge/Telegram-Unofficial Memsource CLI Telegram Group-blue?logo=telegram" alt="Unofficial Memsource CLI Telegram Group"></a>
+[![Google group : Unofficial Memsource CLI Forum](https://img.shields.io/badge/Google%20Group-Unofficial%20Memsource%20CLI%20Forum-blue.svg)](https://groups.google.com/forum/#!forum/unofficial-memsource-cli)
 
 <img src="docs/Cloudy_shell.png" border=0 align="right">
 
