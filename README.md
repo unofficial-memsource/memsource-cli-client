@@ -129,10 +129,39 @@ Commands:
 ```
 
 ## Getting Started
-
 Requirements for python2 environments:
 - package `python-virtualenv`
 
+### Using PyPI package
+
+```
+DIRECTORY="${HOME}/git/memsource-cli-client/"
+if [[ ! -d ${DIRECTORY} ]]; then
+  mkdir -p ${DIRECTORY}
+fi
+cd $DIRECTORY
+
+if [[ -f $(which python3) ]];
+then
+  python3 -m venv --system-site-packages .memsource
+else
+  if [[ ! -f $(which virtualenv) ]];
+  then
+    sudo yum -y install python-virtualenv
+  fi
+  virtualenv --system-site-packages .memsource
+fi
+
+source .memsource/bin/activate
+pip install -U pip
+pip install -U setuptools
+pip install memsource-cli
+
+clear
+memsource --help
+```
+
+### Using git
 
 ```
 DIRECTORY="$HOME/git/"
