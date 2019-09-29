@@ -18,6 +18,10 @@
 - [How does it looks like?](#how-does-it-looks-like)
 - [Collaborate](#collaborate)
 - [Usage](#usage)
+- [Getting Started](#getting-started)
+- [Install from PyPI](#pip-install)
+- [Install from Github](#github-install)
+- [Configuration](#configuration)
 - [Contact us!](#contact-us)
 
 <!-- /TOC -->
@@ -128,11 +132,13 @@ Commands:
   user get       Get user
 ```
 
+<a id="markdown-getting-started" name="getting-started"></a>
 ## Getting Started
 Requirements for python2 environments:
 - package `python-virtualenv`
 
-### Using PyPI package
+<a id="markdown-pip-install" name="pip-install"></a>
+### Install from PyPI
 
 ```
 DIRECTORY="${HOME}/git/memsource-cli-client/"
@@ -161,8 +167,8 @@ clear
 memsource --help
 ```
 
-### Using git
-
+<a id="markdown-github-install" name="github-install"></a>
+### Install from Github
 ```
 DIRECTORY="$HOME/git/"
 
@@ -208,6 +214,7 @@ memsource --help
 ```
 And that's it!
 
+<a id="markdown-configuration" name="configuration"></a>
 ## Configuration
 This way you can configure your username/password and set up memsource token for faster authentication:
 
