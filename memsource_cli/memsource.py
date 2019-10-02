@@ -17,7 +17,7 @@ class MemsourceCli(App):
     def __init__(self):
         super(MemsourceCli, self).__init__(
             description='Unofficial Memsource CLI client',
-            version='0.2',
+            version=memsource_cli.__version__,
             command_manager=CommandManager('memsource.cli'),
             deferred_help=True,
             )

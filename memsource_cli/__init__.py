@@ -515,3 +515,13 @@ from memsource_cli.models.unresolved_conversation_warning_dto import UnresolvedC
 # from memsource_cli.models.vendor import VENDOR
 from memsource_cli.models.void import VOID
 from memsource_cli.models.vendor import Vendor
+
+import pbr.version
+
+__all__ = ['__version__']
+
+version_info = pbr.version.VersionInfo('memsource_cli')
+try:
+  __version__ = version_info.version_string()
+except AttributeError:
+  __version__ = None
