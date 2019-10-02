@@ -17,7 +17,7 @@ deploy:
     skip_existing: true
   - provider: releases
     user: nemakacenko
-    password:
+    api_key:
       secure: "c4tGqVdw0p9MB4RyDjXdJ/Q1xNAijqkZOUSuq+cBXyCmKNBZAXaDXheW7elaXJK37GS1ID7N3Q1lCbzHF2gIe3o2LxYpbRHG4BgBYl/ZCna7wwA35jVpApwe11L5bcX4oufpu4KRM1oP4RnEtuFQCMoOEVwBNzkWcGkfyIIo1tZAusEKwX7lCFI896LHZJKTJhEY7f3hcS9sUV0OVWzdtUim7sWnoLR0niN6yyGbfekZW89vBrLrKs0usqJfaHgeAJUtkmU2aC1PuYygAMdRhDtfxUg3UjSE5oZcjfGk1e8FIwMlv+txxuIg/qDXxFJYCdQbXGj1NNUnZ/lFg/UR07zoqXrzACX1HpqDnnGBHwmA8V8NDaBrrnCE7Dk0NoEZ56xm3zbgbfnctx655cpGXaOsVAnxz/0jqPYEuCraM10pUlRAERIKbM9gTjJK/hp0J8yW3iN5sLmqQXUh/DwbRxU7Ew8bcdRp5Dsp9qRJ72IjstzKq8tAO5/r2KyZZ6tD8pN9M7oOfNIg2GoSQk9prZdudm1FkL7ag2UxVAu7mub/RHIhR95aL/XZvOkVM6ZN1oONMk7OY8gL87XfZCsv52U54VDyHV3XahXlcqHQfMaJbL3tQo19dxhywgnSRVBjNWNq2raYd6R1O4JbwhBBg3UqdIWvX0BSDs8D1FEAbDY="
     skip_cleanup: true
     on:
