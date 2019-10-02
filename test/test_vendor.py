@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import memsource_cli
-from memsource_cli.models.vendor import VENDOR  # noqa: E501
+from memsource_cli.models.vendor import Vendor  # noqa: E501
 from memsource_cli.rest import ApiException
 
 
