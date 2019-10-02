@@ -7,14 +7,12 @@ install:
 - pip install .
 script: memsource --help
 
-jobs:
-  include:   
-    - stage: deploy
-      python: '3.7'
-      provider: pypi
-      distributions: sdist
-      user: "__token__"
-      password:
-        secure: "PRMgu72DU6LFSvqn82YrJbrlzF8X+WTo8y6BuReOQEBQsr9UKYdDDsC2fp9XudG7g/B3RdavO1B8NGHYJuck2khB2sUSed06hk5G/TdvVSEilHplkiq5NHKfF5HeYcftcy7zBqJYjwO0tAdtP8qDS7RFbJWuIFvwJnpRQS+bEH3QGJr8Zh09JsS6m2srRu8O+WnB+V8wh+Zbsw3jTYCO3/DOHtKbooKalLGKWqv5VkSnHvShmzd+OMr0G7KzEDIjFCWgZrGuw8w7CIS9QnfcnnWUg5/XEuyRi2GF1LdLVWY//vtpeeRMSuJIXJ0RyGeCyhf+1SOWhrHSzY9g32ypxBQ67xWBIb3i8D3nL93fQ08GD1ZFySvEqvmuFRuUbZLMnkkPMiYNJBXJNfP9Z83bsCC/nazhDvwyQ/zMdWySN+KXjMlu6tn11MT6I3/zigVqsqsUfh+S9rA3pt6jtaDc9ENjz9Vs5C2os1poSGtdzrIj4CMWf7UH2AbVE+yaaaP3CKKmpkryfDNMKk6pnzxqrPRddv0nja3w62oxjECQaQVk0Vj2xQxha4NIrzCTD7NOXsIGxe/27DiBtx4S5XS4IZpmEEtDi4BTUXkhOMuq6lcAPVYWUa4XIq0AGGqVRjSF9K+ZUUNMtiJlWW4U7mKVS0zxHr2V8py6AHn1+d5td9U="
-      on:
-        branch: master
+deploy:
+  provider: pypi
+  distributions: sdist
+  user: "__token__"
+  password:
+    secure: "PRMgu72DU6LFSvqn82YrJbrlzF8X+WTo8y6BuReOQEBQsr9UKYdDDsC2fp9XudG7g/B3RdavO1B8NGHYJuck2khB2sUSed06hk5G/TdvVSEilHplkiq5NHKfF5HeYcftcy7zBqJYjwO0tAdtP8qDS7RFbJWuIFvwJnpRQS+bEH3QGJr8Zh09JsS6m2srRu8O+WnB+V8wh+Zbsw3jTYCO3/DOHtKbooKalLGKWqv5VkSnHvShmzd+OMr0G7KzEDIjFCWgZrGuw8w7CIS9QnfcnnWUg5/XEuyRi2GF1LdLVWY//vtpeeRMSuJIXJ0RyGeCyhf+1SOWhrHSzY9g32ypxBQ67xWBIb3i8D3nL93fQ08GD1ZFySvEqvmuFRuUbZLMnkkPMiYNJBXJNfP9Z83bsCC/nazhDvwyQ/zMdWySN+KXjMlu6tn11MT6I3/zigVqsqsUfh+S9rA3pt6jtaDc9ENjz9Vs5C2os1poSGtdzrIj4CMWf7UH2AbVE+yaaaP3CKKmpkryfDNMKk6pnzxqrPRddv0nja3w62oxjECQaQVk0Vj2xQxha4NIrzCTD7NOXsIGxe/27DiBtx4S5XS4IZpmEEtDi4BTUXkhOMuq6lcAPVYWUa4XIq0AGGqVRjSF9K+ZUUNMtiJlWW4U7mKVS0zxHr2V8py6AHn1+d5td9U="
+  on:
+    branch: master
+  skip_existing: true
