@@ -198,6 +198,19 @@ if [[ ! -d ${DIRECTORY}/memsource-cli-client ]]; then
   deactivate
 else
   cd memsource-cli-client/
+  rm -Rf .memsource
+  if [[ -f $(which python3) ]];
+  then
+    python3 -m venv --system-site-packages .memsource
+  else
+    if [[ ! -f $(which virtualenv) ]];
+    then
+      sudo yum -y install python-virtualenv
+    fi
+    virtualenv --system-site-packages .memsource
+    for py in $(find memsource_cli -name "*.py"); do sed -i -e 's#/usr/bin/env python3#/usr/bin/env python#' $py; done
+  fi
+  source .memsource/bin/activate
   git checkout master
   git reset --hard
   git pull
