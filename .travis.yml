@@ -2,10 +2,15 @@ language: python
 python:
   - '2.7'
   - '3.7'
+before_install:
+  - pip install pytest pytest-cov
+  - pip install coveralls
 install:
   - pip install -r requirements.txt
   - pip install .
-script: memsource --help
+script:
+  - py.test
+  - memsource --help
 deploy:
   - provider: pypi
     distributions: sdist
@@ -22,3 +27,5 @@ deploy:
     skip_cleanup: true
     on:
       tags: true
+after_success:
+- coveralls
