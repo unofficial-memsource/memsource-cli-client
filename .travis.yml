@@ -3,13 +3,23 @@ python:
   - '2.7'
   - '3.7'
 before_install:
-  - pip install pytest pytest-cov
-  - pip install coveralls
+  - pip install tox
+  - pip install coverage
+  - pip install python-coveralls
+  - pip install codacy-coverage
 install:
   - pip install -r requirements.txt
   - pip install .
+addons:
+  sonarcloud:
+    organization: "unofficial-memsource"
+    token:
+      secure: "kWD+agvgUE3soi1PkBVB671U0NFOezP8AmqQwecvsQmKIjSrNliRBreewi4jZhAA0zz8nScji8kkZiA25QW3BC0irndmhXbhav49VK6nXb4ZVnz5l74C3PI9ICttLajWdjAwkhgmIJwkMgg6PjF/Y+u0NLCMOrgsdasZHflD+xhwFkya5tQSJsMGgkrpoGJa1sqeoLbfZmwQvrMlimntR4hOVad5B5BEchqkpx6YuDJRLgCvTgfRTkrAKuwvrXHO02p6F1wYZjqm/HhgIOAhIXxBg64VcJnUxnNNZt6z5sb8RzqF0Bs3Ct/0+wpRw2pbDbLpEJDjCuszseigl9rQ3uBKULpYzq9U+UM2K1+FsjUJMxy6VHybpzHzUKSpZvrAuhOTnR6IgaWbKubrUeGlGtA0kPrx1PxA7pSYAK5Osm6up7CqrdSrRc7tgQq3DkBDhMLkpH+0ol8RtzsJp3kYKgKCBar6tAtENXfvRkwA0gIJM42wbJuf74kbxlMO9/2dljEeLbl3Cvu9SrLYkqbbNaygZqRTGROth+lkqQ5mE4I+pV5jaMVbSUAECpyXu5/27+kkBGW7WvwlAbesWlNUhjVAbVdTFIz0gsA19O+Z7uaBRFlNaCNq4bQkHrg1V3cZ/ceQEE6YN+tW4FGdua4HoQDwmw2J1d+P2EZczFeG0vI="
 script:
-  - py.test
+  - tox
+  - sonar-scanner
+  - coverage xml
+  - python-codacy-coverage -r coverage.xml
   - memsource --help
 deploy:
   - provider: pypi
