@@ -194,7 +194,7 @@ class JobApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_uid', 'job_uid', 'format']  # noqa: E501
+        all_params = ['project_uid', 'job_uid', 'format', 'token']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -229,6 +229,8 @@ class JobApi(object):
         query_params = []
         if 'format' in params:
             query_params.append(('format', params['format']))  # noqa: E501
+        if 'token' in params:
+            query_params.append(('token', params['token']))  # noqa: E501
 
         header_params = {}
 
@@ -255,7 +257,7 @@ class JobApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='file',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1173,7 +1175,7 @@ class JobApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_uid', 'body', 'format']  # noqa: E501
+        all_params = ['project_uid', 'body', 'format', 'token']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1202,6 +1204,8 @@ class JobApi(object):
         query_params = []
         if 'format' in params:
             query_params.append(('format', params['format']))  # noqa: E501
+        if 'token' in params:
+            query_params.append(('token', params['token']))  # noqa: E501
 
         header_params = {}
 
@@ -1230,7 +1234,7 @@ class JobApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='file',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1385,7 +1389,7 @@ class JobApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_uid', 'job_uid']  # noqa: E501
+        all_params = ['project_uid', 'job_uid', 'token']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1418,6 +1422,8 @@ class JobApi(object):
             path_params['jobUid'] = params['job_uid']  # noqa: E501
 
         query_params = []
+        if 'token' in params:
+            query_params.append(('token', params['token']))  # noqa: E501
 
         header_params = {}
 
@@ -1444,7 +1450,7 @@ class JobApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='file',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

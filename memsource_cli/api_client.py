@@ -74,7 +74,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'Memsource-CLI/0.2rc/python'
+        self.user_agent = 'Memsource-CLI/python'
 
     def __del__(self):
         if self._pool is not None:
@@ -159,10 +159,10 @@ class ApiClient(object):
             post_params=post_params, body=body,
             _preload_content=_preload_content,
             _request_timeout=_request_timeout)
-
         self.last_response = response_data
 
         return_data = response_data
+
         if _preload_content:
             # deserialize response data
             if response_type:
@@ -330,13 +330,13 @@ class ApiClient(object):
                                    _preload_content, _request_timeout)
         else:
             thread = self.pool.apply_async(self.__call_api, (resource_path,
-                                           method, path_params, query_params,
-                                           header_params, body,
-                                           post_params, files,
-                                           response_type, auth_settings,
-                                           _return_http_data_only,
-                                           collection_formats,
-                                           _preload_content, _request_timeout))
+                                                             method, path_params, query_params,
+                                                             header_params, body,
+                                                             post_params, files,
+                                                             response_type, auth_settings,
+                                                             _return_http_data_only,
+                                                             collection_formats,
+                                                             _preload_content, _request_timeout))
         return thread
 
     def request(self, method, url, query_params=None, headers=None,
@@ -529,12 +529,15 @@ class ApiClient(object):
 
         content_disposition = response.getheader("Content-Disposition")
         if content_disposition:
-            filename = re.search(r'filename=[\'"]?([^\'"\s]+)[\'"]?',
+            filename = re.search(r'filename\*=[\w\-]+[\']+([^\'"\s]+);',
                                  content_disposition).group(1)
             path = os.path.join(os.path.dirname(path), filename)
-
-        with open(path, "wb") as f:
-            f.write(response.data)
+        try:
+            with open(path, "wb") as f:
+                f.write(response.data)
+        except:
+            with open(path, "w") as f:
+                f.write(response.data)
 
         return path
 

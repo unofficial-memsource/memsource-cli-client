@@ -5,6 +5,7 @@
 import os
 import json
 import sys
+import re
 
 API_URL = 'https://cloud.memsource.com/web/api2/'
 
@@ -19,6 +20,18 @@ def env(*vars, **kwargs):
         if value:
             return value
     return kwargs.get('default', '')
+
+
+def get_filename(cd):
+    """
+    Get filename from content-disposition
+    """
+    if not cd:
+        return None
+    fname = re.findall('filename=(.+)', cd)
+    if len(fname) == 0:
+        return None
+    return fname[0]
 
 
 def validate_response(response, status_code):

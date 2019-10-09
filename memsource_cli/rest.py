@@ -219,7 +219,10 @@ class RESTClientObject(object):
             # In the python 3, the response.data is bytes.
             # we need to decode it to string.
             if six.PY3:
-                r.data = r.data.decode('utf8')
+                try:
+                    r.data = r.data.decode('utf8')
+                except:
+                    pass
 
             # log response body
             logger.debug("response body: %s", r.data)
@@ -317,10 +320,10 @@ class ApiException(Exception):
                         "Error description: %s\n" \
                         "Error Reason: %s\n" \
                         "Response status: %s\n\n" % (json.loads(self.body)
-                                                   ["errorCode"],
-                                                   json.loads(self.body)
-                                                   ["errorDescription"],
-                                                   self.reason, self.status)
+                                                     ["errorCode"],
+                                                     json.loads(self.body)
+                                                     ["errorDescription"],
+                                                     self.reason, self.status)
         if self.headers:
             error_message += "HTTP response headers: {0}\n".format(
                 self.headers)

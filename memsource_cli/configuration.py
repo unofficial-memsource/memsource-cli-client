@@ -42,7 +42,7 @@ class Configuration(object):
         # Default Base url
         self.host = "https://cloud.memsource.com/web"
         # Temp file folder for downloading files
-        self.temp_folder_path = None
+        self.temp_folder_path = "/tmp/"
 
         # Authentication Settings
         # dict to store API key(s)

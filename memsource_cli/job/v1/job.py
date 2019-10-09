@@ -71,7 +71,7 @@ class CreateJob(Lister):
                     + ',\'useProjectFileImportSettings\': \'true\'}'
                 },
                 data=_file
-                )
+            )
             utils.validate_response(response, 201)
             response = json.loads(response.text)
             data += [(response['jobs'][i]['uid'],
@@ -156,3 +156,77 @@ class ShowJob(ShowOne):
                                 job_uid=parsed_args.job_uid)
 
         return utils._print_output(response)
+
+
+class DownloadJob(ShowOne):
+    """
+    Download job file
+    """
+
+    def get_parser(self, prog_name):
+        """Command argument parsing."""
+        parser = super(DownloadJob, self).get_parser(prog_name)
+        parser.add_argument(
+            '--project-id',
+            help='project_uid',
+            dest='project_uid',
+        )
+        parser.add_argument(
+            '--type',
+            help='type',
+            default='target',
+            dest='type',
+            choices=['target', 'original', 'bilingual'],
+        )
+        parser.add_argument(
+            '--job-id',
+            help='job_uid',
+            dest='job_uid',
+        )
+        parser.add_argument(
+            '--target-format',
+            help='target_format',
+            default='ORIGINAL',
+            choices=['ORIGINAL', 'PDF'],
+            dest='target_format',
+        )
+        parser.add_argument(
+            '--bilingual-format',
+            help='bilingual_format',
+            default='MXLF',
+            choices=['MXLF', 'DOCX', 'XLIFF'],
+            dest='bilingual_format',
+        )
+        return parser
+
+    def take_action(self, parsed_args):
+        api = memsource_cli.JobApi(self.app.client)
+
+        if parsed_args.type == "target":
+            path = api.completed_file(token=self.app.client.configuration.token,
+                                      project_uid=parsed_args.project_uid,
+                                      job_uid=parsed_args.job_uid,
+                                      format=parsed_args.target_format)
+            header = (("type"), ("format"), ("path"))
+            values = ((parsed_args.type), (parsed_args.target_format), (path))
+
+        elif parsed_args.type == "original":
+            path = api.get_original_file(token=self.app.client.configuration.token,
+                                         project_uid=parsed_args.project_uid,
+                                         job_uid=parsed_args.job_uid)
+            header = (("type"), ("path"))
+            values = ((parsed_args.type), (path))
+
+        elif parsed_args.type == "bilingual":
+            _job_ids = []
+            _job_ids.append({'uid': parsed_args.job_uid})
+
+            path = api.get_bilingual_file(token=self.app.client.configuration.token,
+                                          project_uid=parsed_args.project_uid,
+                                          body={"jobs": _job_ids},
+                                          format=parsed_args.bilingual_format)
+            header = (("type"), ("format"), ("path"))
+            values = ((parsed_args.type),
+                      (parsed_args.bilingual_format), (path))
+
+        return((header), (values))
