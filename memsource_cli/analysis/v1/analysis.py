@@ -6,6 +6,7 @@ from cliff.show import ShowOne
 from cliff import command
 from cliff.lister import Lister
 
+import json
 import memsource_cli
 
 
@@ -98,10 +99,12 @@ class CreateAnalysis(ShowOne):
         data = []
 
         output = response.to_dict()
-        data += [(output['analyse'])]
+        data += [(json.dumps(output['analyse']))]
 
         content = output['async_request']
         for k, v in content.items():
+            if isinstance(v, dict):
+                v = json.dumps(v)
             data += [(v)]
 
         return((column_headers), (data))
@@ -188,8 +191,8 @@ class CreateAnalysisByLanguages(Lister):
         args['jobs'] = _job_ids
 
         response = api.create_analyses_for_langs(
-                    token=self.app.client.configuration.token,
-                    body=args)
+            token=self.app.client.configuration.token,
+            body=args)
 
         output = response.to_dict()
 
@@ -201,15 +204,15 @@ class CreateAnalysisByLanguages(Lister):
                 'project_name',
                 'created_by'
                 ), (
-                (output['analyses'][i]['async_request']['id'],
-                 output['analyses'][i]['analyse']['id'],
-                 output['analyses'][i]['async_request']['action'],
-                 output['analyses'][i]['async_request']['date_created'],
-                 output['analyses'][i]['async_request']['project']['uid'],
-                 output['analyses'][i]['async_request']['project']['name'],
-                 output['analyses'][i]['async_request']['created_by'])
-                for i in range(0, len(output['analyses']))
-                ))
+            (output['analyses'][i]['async_request']['id'],
+             output['analyses'][i]['analyse']['id'],
+             output['analyses'][i]['async_request']['action'],
+             output['analyses'][i]['async_request']['date_created'],
+             output['analyses'][i]['async_request']['project']['uid'],
+             output['analyses'][i]['async_request']['project']['name'],
+             json.dumps(output['analyses'][i]['async_request']['created_by']))
+            for i in range(0, len(output['analyses']))
+        ))
 
 
 class DeleteAnalysis(command.Command):

@@ -5,6 +5,7 @@
 from cliff.lister import Lister
 
 import memsource_cli
+import json
 
 
 class ListAnalysisByProject(Lister):
@@ -53,22 +54,22 @@ class ListAnalysisByProject(Lister):
                 'source_lang',
                 'target_lang'
                 ), (
-                (response['content'][i]['id'],
-                 response['content'][i]['name'],
-                 response['content'][i]['analyse_language_parts']
-                 [j]['jobs'],
-                 response['content'][i]['provider'],
-                 response['content'][i]['type'],
-                 response['content'][i]['date_created'],
-                 response['content'][i]['analyse_language_parts']
-                 [j]['source_lang'],
-                 response['content'][i]['analyse_language_parts']
-                 [j]['target_lang']
-                 )
-                for i in range(0, len(response['content']))
-                for j in range(0, len(response['content'][i]
-                                      ['analyse_language_parts'])))
-               )
+            (response['content'][i]['id'],
+             response['content'][i]['name'],
+             json.dumps(response['content'][i]['analyse_language_parts']
+                        [j]['jobs']),
+             response['content'][i]['provider'],
+             response['content'][i]['type'],
+             response['content'][i]['date_created'],
+             response['content'][i]['analyse_language_parts']
+             [j]['source_lang'],
+             response['content'][i]['analyse_language_parts']
+             [j]['target_lang']
+             )
+            for i in range(0, len(response['content']))
+            for j in range(0, len(response['content'][i]
+                                  ['analyse_language_parts'])))
+        )
 
 
 class ShowAnalysis(Lister):
@@ -102,7 +103,7 @@ class ShowAnalysis(Lister):
                 discounted_data = content[j]['discounted_data']['all']['words']
             else:
                 discounted_data = None
-            data += [(content[j]['jobs'],
+            data += [(json.dumps(content[j]['jobs']),
                       discounted_data,
                       content[j]['data']['all']['words'],
                       content[j]['source_lang'],

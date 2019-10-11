@@ -6,6 +6,7 @@ from cliff import command
 from cliff.lister import Lister
 from cliff.show import ShowOne
 
+import json
 import memsource_cli
 from memsource_cli.lib import utils
 
@@ -191,17 +192,20 @@ class ListProjects(Lister):
         content = output['content']
 
         for i in range(0, len(content)):
+            for j in column_headers:
+                if isinstance(content[i][j], dict):
+                    content[i][j] = json.dumps(content[i][j])
             data += [(content[i]['uid'],
-                     content[i]['internal_id'],
-                     content[i]['id'],
-                     content[i]['name'],
-                     content[i]['date_created'],
-                     content[i]['domain'],
-                     content[i]['sub_domain'],
-                     content[i]['owner'],
-                     content[i]['source_lang'],
-                     content[i]['target_langs'],
-                     content[i]['references'],
-                     content[i]['user_role'])]
+                      content[i]['internal_id'],
+                      content[i]['id'],
+                      content[i]['name'],
+                      content[i]['date_created'],
+                      content[i]['domain'],
+                      content[i]['sub_domain'],
+                      content[i]['owner'],
+                      content[i]['source_lang'],
+                      content[i]['target_langs'],
+                      content[i]['references'],
+                      content[i]['user_role'])]
 
         return((column_headers), (data))

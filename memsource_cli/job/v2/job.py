@@ -4,6 +4,7 @@
 
 from cliff.lister import Lister
 
+import json
 import memsource_cli
 
 
@@ -81,6 +82,9 @@ class ListJobs(Lister):
         content = output['content']
 
         for i in range(0, len(content)):
+            for j in column_headers:
+                if isinstance(content[i][j], dict):
+                    content[i][j] = json.dumps(content[i][j])
             data += [(content[i]['uid'],
                       content[i]['status'],
                       content[i]['providers'],

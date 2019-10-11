@@ -55,6 +55,8 @@ def _print_output(response):
 
     for k, v in output.items():
         column_header += [(k)]
+        if isinstance(v, dict):
+            v = json.dumps(v)
         values += [(v)]
     header = tuple(column_header)
     data = tuple(values)
