@@ -91,8 +91,10 @@ class ListJobs(Lister):
                       content[i]['target_lang'],
                       content[i]['workflow_step'],
                       content[i]['filename'],
-                      content[i]['date_due'],
-                      content[i]['date_created'],
+                      json.dumps(content[i]['date_due'],
+                                 default=str).replace('"', ''),
+                      json.dumps(content[i]['date_created'],
+                                 default=str).replace('"', ''),
                       content[i]['imported'],
                       content[i]['continuous'])]
 

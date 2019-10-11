@@ -76,7 +76,8 @@ class CreateJob(Lister):
             response = json.loads(response.text)
             data += [(response['jobs'][i]['uid'],
                       response['jobs'][i]['status'],
-                      response['jobs'][i]['dateCreated'],
+                      json.dumps(response['jobs'][i]['dateCreated'], default=str).replace(
+                          '"', ''),
                       response['jobs'][i]['filename'],
                       response['jobs'][i]['targetLang'])
                      for i in range(0, len(response['jobs']))]

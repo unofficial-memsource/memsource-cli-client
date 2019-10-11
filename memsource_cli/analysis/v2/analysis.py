@@ -60,7 +60,8 @@ class ListAnalysisByProject(Lister):
                         [j]['jobs']),
              response['content'][i]['provider'],
              response['content'][i]['type'],
-             response['content'][i]['date_created'],
+             json.dumps(response['content'][i]['date_created'],
+                        default=str).replace('"', ''),
              response['content'][i]['analyse_language_parts']
              [j]['source_lang'],
              response['content'][i]['analyse_language_parts']

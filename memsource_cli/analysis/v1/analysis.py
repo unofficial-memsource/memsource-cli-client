@@ -7,6 +7,7 @@ from cliff import command
 from cliff.lister import Lister
 
 import json
+import datetime
 import memsource_cli
 
 
@@ -103,6 +104,8 @@ class CreateAnalysis(ShowOne):
 
         content = output['async_request']
         for k, v in content.items():
+            if isinstance(v, datetime.datetime):
+                v = json.dumps(v, default=str).replace('"', '')
             if isinstance(v, dict):
                 v = json.dumps(v)
             data += [(v)]
@@ -207,7 +210,8 @@ class CreateAnalysisByLanguages(Lister):
             (output['analyses'][i]['async_request']['id'],
              output['analyses'][i]['analyse']['id'],
              output['analyses'][i]['async_request']['action'],
-             output['analyses'][i]['async_request']['date_created'],
+             json.dumps(output['analyses'][i]['async_request']
+                        ['date_created'], default=str).replace('"', ''),
              output['analyses'][i]['async_request']['project']['uid'],
              output['analyses'][i]['async_request']['project']['name'],
              json.dumps(output['analyses'][i]['async_request']['created_by']))

@@ -6,6 +6,7 @@ import os
 import json
 import sys
 import re
+import datetime
 
 API_URL = 'https://cloud.memsource.com/web/api2/'
 
@@ -55,6 +56,8 @@ def _print_output(response):
 
     for k, v in output.items():
         column_header += [(k)]
+        if isinstance(v, datetime.datetime):
+            v = json.dumps(v, default=str).replace('"', '')
         if isinstance(v, dict):
             v = json.dumps(v)
         values += [(v)]
