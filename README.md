@@ -16,6 +16,7 @@
 <!-- TOC depthFrom:1 insertAnchor:true orderedList:true -->
 
 - [Introduction](#introduction)
+- [Releases](#releases)
 - [Highlights](#highlights)
 - [What's new](#whatsnew)
 - [How does it looks like?](#how-does-it-looks-like)
@@ -36,6 +37,11 @@
 Memsource CLI is a framework to help with automation of Memsource related tasks. This empowers you to automate repetitive tasks such as project, job creation, analysis runs and others. The framework is cabable to talk to Memsource API using REST client and show you the results of the execution on the screen.
 
 Please if you have any idea on any improvements please do not hesitate to open an issue.
+
+<a id="markdown-releases" name="releases"></a>
+## Releases
+- For the latest and greatest bits, please follow guide [Install from Github](#github-install)
+- For latest released version, please follow guide [Install from PyPI](#pip-install)
 
 <a id="markdown-highlights" name="highlights"></a>
 ## Highlights
