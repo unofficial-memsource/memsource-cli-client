@@ -94,6 +94,7 @@ Version 0.2.5 contains features such as:
 - [Create user](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-User#user-create)
 - [Get user](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-User#user-get)
 
+For more information see [CHANGELOG.md](CHANGELOG.md)
 <a id="markdown-how-does-it-looks-like" name="how-does-it-looks-like"></a>
 ## How does it looks like?
 Check how does it look in an execution at:
