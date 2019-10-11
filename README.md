@@ -55,6 +55,10 @@ Framework will download additional packages:
 <a id="markdown-whatsnew" name="whatsnew"></a>
 ## What's new
 
+Version 0.2.8 release fixes following bugs:
+
+#6 [BUG] A CLI returns invalid JSON with single-quotes bug low triaged
+
 Version 0.2.6 contains features such as:
 
 - [Job file download (bilingual MXLF)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-file-download-bilingual-mxlf)
