@@ -205,7 +205,7 @@ class ListProjects(Lister):
                       content[i]['owner'],
                       content[i]['source_lang'],
                       content[i]['target_langs'],
-                      content[i]['references'],
+                      json.dumps(content[i]['references']),
                       content[i]['user_role'])]
 
         return((column_headers), (data))
