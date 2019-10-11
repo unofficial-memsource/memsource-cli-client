@@ -55,7 +55,15 @@ Framework will download additional packages:
 <a id="markdown-whatsnew" name="whatsnew"></a>
 ## What's new
 
-This release candidate 0.2rc contains features such as:
+Version 0.2.6 contains features such as:
+
+- [Job file download (bilingual MXLF)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-file-download-bilingual-mxlf)
+- [Job file download (bilingual XLIFF)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-file-download-bilingual-xliff)
+- [Job file download (bilingual DOCX)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-file-download-bilingual-docx)
+- [Job file download (target)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-file-download-target)
+- [Job file download (original)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-file-download-original)
+
+Version 0.2.5 contains features such as:
 
 - [Create analysis](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Analysis#analyse-create)
 - [Delete analysis](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Analysis#analyse-delete)
@@ -92,9 +100,7 @@ Check how does it look in an execution at:
 
 ```
 $ memsource --help
-usage: memsource [--version] [-v | -q] [--log-file LOG_FILE] [-h] [--debug]
-                 [--ms-username <auth-username>]
-                 [--ms-password <auth-password>] [--ms-token <auth-token>]
+usage: memsource [--version] [-v | -q] [--log-file LOG_FILE] [-h] [--debug] [--ms-username <auth-username>] [--ms-password <auth-password>] [--ms-token <auth-token>]
 
 Unofficial Memsource CLI client
 
@@ -124,6 +130,7 @@ Commands:
   help           print detailed help for another command (cliff)
   job create     Creates job in project
   job delete     Delete jobs
+  job file download  Download job file
   job list       List jobs in project
   job show       Get job
   project create  Create new project
