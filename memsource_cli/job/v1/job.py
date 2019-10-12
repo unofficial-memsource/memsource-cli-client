@@ -180,6 +180,11 @@ class DownloadJob(ShowOne):
             choices=['target', 'original', 'bilingual'],
         )
         parser.add_argument(
+            '--output-dir',
+            help='output_dir',
+            dest='output_dir'
+        )
+        parser.add_argument(
             '--job-id',
             help='job_uid',
             dest='job_uid',
@@ -202,6 +207,8 @@ class DownloadJob(ShowOne):
 
     def take_action(self, parsed_args):
         api = memsource_cli.JobApi(self.app.client)
+        if parsed_args.output_dir:
+            self.app.configuration.temp_folder_path = parsed_args.output_dir
 
         if parsed_args.type == "target":
             path = api.completed_file(token=self.app.client.configuration.token,

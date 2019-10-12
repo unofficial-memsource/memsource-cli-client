@@ -20,7 +20,7 @@ class MemsourceCli(App):
             version=memsource_cli.__version__,
             command_manager=CommandManager('memsource.cli'),
             deferred_help=True,
-            )
+        )
 
     def initialize_app(self, argv):
         super(MemsourceCli, self).initialize_app(argv)
@@ -33,7 +33,7 @@ class MemsourceCli(App):
         parser = super(MemsourceCli, self).build_option_parser(
             description,
             version,
-            )
+        )
         parser.add_argument(
             '--ms-username',
             action="store",
@@ -69,8 +69,8 @@ class MemsourceCli(App):
         if not self.options.ms_token:
             if not self.options.ms_username:
                 print(
-                        "You must provide a username via"
-                        " either --ms-username or env[MEMSOURCE_USERNAME]")
+                    "You must provide a username via"
+                    " either --ms-username or env[MEMSOURCE_USERNAME]")
             self.configuration.username = self.options.ms_username
 
             if not self.options.ms_password:

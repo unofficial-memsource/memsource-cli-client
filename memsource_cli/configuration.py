@@ -14,6 +14,7 @@
 from __future__ import absolute_import
 
 import copy
+import os
 import logging
 import multiprocessing
 import sys
@@ -42,7 +43,7 @@ class Configuration(object):
         # Default Base url
         self.host = "https://cloud.memsource.com/web"
         # Temp file folder for downloading files
-        self.temp_folder_path = "/tmp/"
+        self.temp_folder_path = os.getcwd()
 
         # Authentication Settings
         # dict to store API key(s)
