@@ -67,11 +67,11 @@ Version 0.2.8 release fixes following bugs:
 
 Version 0.2.6 contains features such as:
 
-- [Job file download (bilingual MXLF)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-file-download-bilingual-mxlf)
-- [Job file download (bilingual XLIFF)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-file-download-bilingual-xliff)
-- [Job file download (bilingual DOCX)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-file-download-bilingual-docx)
-- [Job file download (target)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-file-download-target)
-- [Job file download (original)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-file-download-original)
+- [Job file download (bilingual MXLF)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-bilingual-mxlf)
+- [Job file download (bilingual XLIFF)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-bilingual-xliff)
+- [Job file download (bilingual DOCX)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-bilingual-docx)
+- [Job file download (target)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-target)
+- [Job file download (original)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-original)
 
 Version 0.2.5 contains features such as:
 
