@@ -9,6 +9,11 @@
 [0.2.9] Fix to datetime JSON serialization  
 [0.2.9] Minor fix: invalid JSON in references in memsource project list 
 
+Added features such as
+
+- [Job Translation pre-translate](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Translation)
+- [Job Translations delete](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-translations-delete)
+
 ### Version 0.2.8
 
 Fixed #6 [BUG] A CLI returns invalid JSON with single-quotes bug low triaged
