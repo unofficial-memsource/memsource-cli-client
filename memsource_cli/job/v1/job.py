@@ -86,6 +86,43 @@ class CreateJob(Lister):
                (s) for s in data))
 
 
+class DeleteTranslations(command.Command):
+    """
+    Delete translations
+    """
+
+    def get_parser(self, prog_name):
+        """Command argument parsing."""
+        parser = super(DeleteTranslations, self).get_parser(prog_name)
+        parser.add_argument(
+            '--project-id',
+            help='project_uid',
+            dest='project_uid',
+            required=True
+        )
+        parser.add_argument(
+            'job_ids',
+            help='job_ids',
+            nargs='+',
+            default=[]
+        )
+        return parser
+
+    def take_action(self, parsed_args):
+        api = memsource_cli.JobApi(self.app.client)
+
+        _job_ids = []
+        for i in parsed_args.job_ids:
+            _job_ids.append({'uid': i})
+
+        print("Accepted request to delete all translations in project %s for jobs %s"
+              % (parsed_args.project_uid, parsed_args.job_ids))
+
+        api.delete_all_translations(token=self.app.client.configuration.token,
+                                    project_uid=parsed_args.project_uid,
+                                    body={"jobs": _job_ids})
+
+
 class DeleteJobs(command.Command):
     """
     Delete jobs
