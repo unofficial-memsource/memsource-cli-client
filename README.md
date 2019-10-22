@@ -141,14 +141,16 @@ Commands:
   help           print detailed help for another command (cliff)
   job create     Creates job in project
   job delete     Delete jobs
-  job file download  Download job file
+  job download   Download job file
   job list       List jobs in project
   job show       Get job
+  job translations delete  Delete translations
   project create  Create new project
   project delete  Deletes a project
   project list   List projects
   project show   Get project
   project template create  Create new project from template
+  translation pre-translate  Pre-translate job
   user create    Create user
   user get       Get user
 ```
