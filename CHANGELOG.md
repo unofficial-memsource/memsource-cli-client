@@ -1,8 +1,17 @@
 ## Change log
 
+### Version 0.2.9
+
+[0.2.9] Adding feature job translations delete all  
+[0.2.9] Job download renamed  
+[0.2.9] Add Translation pre-translate option  
+[0.2.9] Customized output directory for file downloads  
+[0.2.9] Fix to datetime JSON serialization  
+[0.2.9] Minor fix: invalid JSON in references in memsource project list 
+
 ### Version 0.2.8
 
-#6 [BUG] A CLI returns invalid JSON with single-quotes bug low triaged
+Fixed #6 [BUG] A CLI returns invalid JSON with single-quotes bug low triaged
 
 ### Version 0.2.6
 
