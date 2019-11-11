@@ -1073,7 +1073,7 @@ class ProjectTemplateApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_template_id']  # noqa: E501
+        all_params = ['project_template_id','token']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1100,6 +1100,8 @@ class ProjectTemplateApi(object):
             path_params['projectTemplateId'] = params['project_template_id']  # noqa: E501
 
         query_params = []
+        if 'token' in params:
+            query_params.append(('token', params['token']))  # noqa: E501
 
         header_params = {}
 

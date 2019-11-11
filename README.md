@@ -61,6 +61,15 @@ Framework will download additional packages:
 <a id="markdown-whatsnew" name="whatsnew"></a>
 ## What's new
 
+Version 0.2.10
+
+[0.2.10] Adding feature template show  
+
+Added new features such as
+
+- [Template show](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Template#template-show)
+
+
 Version 0.2.9
 
 [0.2.9] Adding feature job translations delete all  

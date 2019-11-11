@@ -71,8 +71,8 @@ class ProjectTemplateNotifyProviderDto(object):
         :param organization_email_template: The organization_email_template of this ProjectTemplateNotifyProviderDto.  # noqa: E501
         :type: IdReference
         """
-        if organization_email_template is None:
-            raise ValueError("Invalid value for `organization_email_template`, must not be `None`")  # noqa: E501
+        # if organization_email_template is None:
+        #    raise ValueError("Invalid value for `organization_email_template`, must not be `None`")  # noqa: E501
 
         self._organization_email_template = organization_email_template
 
@@ -94,10 +94,10 @@ class ProjectTemplateNotifyProviderDto(object):
         :param notification_interval_in_minutes: The notification_interval_in_minutes of this ProjectTemplateNotifyProviderDto.  # noqa: E501
         :type: int
         """
-        if notification_interval_in_minutes is not None and notification_interval_in_minutes > 1440:  # noqa: E501
-            raise ValueError("Invalid value for `notification_interval_in_minutes`, must be a value less than or equal to `1440`")  # noqa: E501
-        if notification_interval_in_minutes is not None and notification_interval_in_minutes < 0:  # noqa: E501
-            raise ValueError("Invalid value for `notification_interval_in_minutes`, must be a value greater than or equal to `0`")  # noqa: E501
+        # if notification_interval_in_minutes is not None and notification_interval_in_minutes > 1440:  # noqa: E501
+        #     raise ValueError("Invalid value for `notification_interval_in_minutes`, must be a value less than or equal to `1440`")  # noqa: E501
+        # if notification_interval_in_minutes is not None and notification_interval_in_minutes < 0:  # noqa: E501
+        #     raise ValueError("Invalid value for `notification_interval_in_minutes`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._notification_interval_in_minutes = notification_interval_in_minutes
 
