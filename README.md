@@ -63,10 +63,11 @@ Framework will download additional packages:
 
 Version 0.3
 
-[0.3] Adding feature project template list 
-[0.3] Move memsource `project template create` to `project create --template-id` 
+[0.3] Adding feature project template list  
+[0.3] Move memsource `project template create` to `project create --template-id`  
 
-- [Template list](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Template#template-list)
+- [Template list](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Template#template-list)  
+
 
 Version 0.2.10
 
