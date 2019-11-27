@@ -533,10 +533,10 @@ class ApiClient(object):
                                  content_disposition).group(1)
             path = os.path.join(os.path.dirname(path), filename)
         try:
-            with open(path, "wb") as f:
+            with open(path, "wb", encoding="utf-8") as f:
                 f.write(response.data)
         except:
-            with open(path, "w") as f:
+            with open(path, "w", encoding="utf-8") as f:
                 f.write(response.data)
 
         return path
