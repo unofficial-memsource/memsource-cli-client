@@ -29,7 +29,11 @@ class CreateProject(ShowOne):
             'sub_domain': 'subDomain',
             'owner': 'owner',
             'source_lang': 'sourceLang',
-            'user_role': 'userRole'
+            'user_role': 'userRole',
+            'note': 'note',
+            'client': 'client',
+            'date_due': 'datetime',
+            'business_unit': 'businessUnit',
         }
         all_params_int = {
             'internal_id': 'internalId',
@@ -37,6 +41,7 @@ class CreateProject(ShowOne):
         all_params_list = {
             'target_langs': 'targetLangs',
             'references': 'references',
+            'workflow_steps': 'workflowSteps',
         }
 
         for k, v in all_params.items():
@@ -60,9 +65,35 @@ class CreateProject(ShowOne):
                 nargs='+',
                 default=[]
             )
+        parser.add_argument(
+            '--template-id',
+            action='store',
+            dest='template_id',
+            help='template_id'
+        )
         return parser
 
     def take_action(self, parsed_args):
+        if parsed_args.template_id:
+            api = memsource_cli.ProjectApi(self.app.client)
+
+            all_params = ['name', 'sourceLang', 'workflowSteps', 'dateDue',
+                        'note', 'client', 'businessUnit', 'domain',
+                        'subDomain']
+            args = {}
+
+            parsed = vars(parsed_args)
+
+            for k, v in parsed.items():
+                if k in all_params and v is not None:
+                    args[k] = v
+
+            response = api.create_project_from_template_v2(token=self.app.client.configuration.token,  # noqa: E501
+                                        template_id=parsed_args.template_id,
+                                        body=vars(parsed_args))
+
+            return utils._print_output(response)
+        
         api = memsource_cli.ProjectApi(self.app.client)
         response = api.create_project(token=self.app.client.configuration.token,  # noqa: E501
                                       body=vars(parsed_args))
