@@ -257,7 +257,7 @@ class DownloadJob(ShowOne):
                                           job_uid=job_uid,
                                           format=parsed_args.target_format)
                 file_paths.append(path)
-            header = (("type"), ("format"), ("paths"))
+            header = (("type"), ("format"), ("path"))
             values = ((parsed_args.type),
                       (parsed_args.target_format), (file_paths))
 
