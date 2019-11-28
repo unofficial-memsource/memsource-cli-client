@@ -147,7 +147,9 @@ Check how does it look in an execution at:
 
 ```
 $ memsource --help
-usage: memsource [--version] [-v | -q] [--log-file LOG_FILE] [-h] [--debug] [--ms-username <auth-username>] [--ms-password <auth-password>] [--ms-token <auth-token>]
+usage: memsource [--version] [-v | -q] [--log-file LOG_FILE] [-h] [--debug]
+                 [--ms-username <auth-username>]
+                 [--ms-password <auth-password>] [--ms-token <auth-token>]
 
 Unofficial Memsource CLI client
 
@@ -185,7 +187,8 @@ Commands:
   project delete  Deletes a project
   project list   List projects
   project show   Get project
-  project template create  Create new project from template
+  template list  List templates
+  template show  Show template
   translation pre-translate  Pre-translate job
   user create    Create user
   user get       Get user
