@@ -225,6 +225,8 @@ class DownloadJob(ShowOne):
             '--job-id',
             help='job_uid',
             dest='job_uid',
+            nargs='+',
+            default=[]
         )
         parser.add_argument(
             '--target-format',
@@ -248,24 +250,26 @@ class DownloadJob(ShowOne):
             self.app.configuration.temp_folder_path = parsed_args.output_dir
 
         if parsed_args.type == "target":
-            path = api.completed_file(token=self.app.client.configuration.token,
-                                      project_uid=parsed_args.project_uid,
-                                      job_uid=parsed_args.job_uid,
-                                      format=parsed_args.target_format)
+            for job_uid in parsed_args.job_uid:
+                path = api.completed_file(token=self.app.client.configuration.token,
+                                          project_uid=parsed_args.project_uid,
+                                          job_uid=job_uid,
+                                          format=parsed_args.target_format)
             header = (("type"), ("format"), ("path"))
             values = ((parsed_args.type), (parsed_args.target_format), (path))
 
         elif parsed_args.type == "original":
-            path = api.get_original_file(token=self.app.client.configuration.token,
-                                         project_uid=parsed_args.project_uid,
-                                         job_uid=parsed_args.job_uid)
+            for job_uid in parsed_args.job_uid:
+                path = api.get_original_file(token=self.app.client.configuration.token,
+                                             project_uid=parsed_args.project_uid,
+                                             job_uid=job_uid)
             header = (("type"), ("path"))
             values = ((parsed_args.type), (path))
 
         elif parsed_args.type == "bilingual":
             _job_ids = []
-            _job_ids.append({'uid': parsed_args.job_uid})
-
+            for job_uid in parsed_args.job_uid:
+                _job_ids.append({'uid': job_uid})
             path = api.get_bilingual_file(token=self.app.client.configuration.token,
                                           project_uid=parsed_args.project_uid,
                                           body={"jobs": _job_ids},

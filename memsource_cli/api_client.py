@@ -12,20 +12,21 @@
 from __future__ import absolute_import
 
 import datetime
+import errno
 import json
 import mimetypes
-from multiprocessing.pool import ThreadPool
 import os
 import re
 import tempfile
+from multiprocessing.pool import ThreadPool
 
 # python 2 and python 3 compatibility library
 import six
 from six.moves.urllib.parse import quote
 
-from memsource_cli.configuration import Configuration
 import memsource_cli.models
 from memsource_cli import rest
+from memsource_cli.configuration import Configuration
 
 
 class ApiClient(object):
@@ -531,7 +532,14 @@ class ApiClient(object):
         if content_disposition:
             filename = re.search(r'filename\*=[\w\-]+[\']+([^\'"\s]+);',
                                  content_disposition).group(1)
-            path = os.path.join(os.path.dirname(path), filename)
+            path = os.path.join(os.path.dirname(
+                path), filename).replace('%2F', '/')
+            if not os.path.exists(os.path.dirname(path)):
+                try:
+                    os.makedirs(os.path.dirname(path))
+                except OSError as exc:
+                    if exc.errno != errno.EEXIST:
+                        raise
         try:
             with open(path, "wb", encoding="utf-8") as f:
                 f.write(response.data)
