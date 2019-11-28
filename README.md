@@ -70,6 +70,7 @@ Fixed #15 [BUG] 'charmap' error on bilingual download
 Added new features such as
 
 - [Job file download (multiple job_uids)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-multiple-job_uids)
+- [Job file download (all job_uids within project)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-all-job_uids-within-project)
 
 
 Version 0.3
