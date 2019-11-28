@@ -2,13 +2,16 @@
 # -*- coding: cp1252 -*-
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
 
-from cliff.lister import Lister
-from cliff import command
-from cliff.show import ShowOne
-import requests
+import errno
 import json
+import os
+
+import requests
 
 import memsource_cli
+from cliff import command
+from cliff.lister import Lister
+from cliff.show import ShowOne
 from memsource_cli.lib import utils
 
 
@@ -248,6 +251,14 @@ class DownloadJob(ShowOne):
         api = memsource_cli.JobApi(self.app.client)
         if parsed_args.output_dir:
             self.app.configuration.temp_folder_path = parsed_args.output_dir
+
+        if parsed_args.output_dir:
+            if not os.path.exists(parsed_args.output_dir):
+                try:
+                    os.makedirs(parsed_args.output_dir)
+                except OSError as exc:
+                    if exc.errno != errno.EEXIST:
+                        raise
 
         file_paths = []
         if parsed_args.type == "target":
