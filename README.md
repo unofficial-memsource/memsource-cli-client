@@ -65,8 +65,9 @@ Version 0.3.1 (Pending for release)
 
 Fixed #15 [BUG] 'charmap' error on bilingual download  
 [0.3.1] memsource job download can work on multiple job_uids  
+[0.3.1] force directory creation with --output-dir on job download  
 
-Feature presented in
+Added new features such as
 
 - [Job file download (multiple job_uids)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-multiple-job_uids)
 
