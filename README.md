@@ -63,8 +63,8 @@ Framework will download additional packages:
 
 Version 0.3.1 (Pending for release)
 
-Fixed #15 [BUG] 'charmap' error on bilingual download 
-
+Fixed #15 [BUG] 'charmap' error on bilingual download  
+[0.3.1] memsource job download can work on multiple job_uids  
 
 Version 0.3
 
