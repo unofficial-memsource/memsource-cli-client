@@ -61,6 +61,11 @@ Framework will download additional packages:
 <a id="markdown-whatsnew" name="whatsnew"></a>
 ## What's new
 
+Version 0.3.1 (Pending for release)
+
+Fixed #15 [BUG] 'charmap' error on bilingual download 
+
+
 Version 0.3
 
 [0.3] Adding feature project template list  
