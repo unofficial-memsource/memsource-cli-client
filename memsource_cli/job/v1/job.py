@@ -249,22 +249,26 @@ class DownloadJob(ShowOne):
         if parsed_args.output_dir:
             self.app.configuration.temp_folder_path = parsed_args.output_dir
 
+        file_paths = []
         if parsed_args.type == "target":
             for job_uid in parsed_args.job_uid:
                 path = api.completed_file(token=self.app.client.configuration.token,
                                           project_uid=parsed_args.project_uid,
                                           job_uid=job_uid,
                                           format=parsed_args.target_format)
-            header = (("type"), ("format"), ("path"))
-            values = ((parsed_args.type), (parsed_args.target_format), (path))
+                file_paths.append(path)
+            header = (("type"), ("format"), ("paths"))
+            values = ((parsed_args.type),
+                      (parsed_args.target_format), (file_paths))
 
         elif parsed_args.type == "original":
             for job_uid in parsed_args.job_uid:
                 path = api.get_original_file(token=self.app.client.configuration.token,
                                              project_uid=parsed_args.project_uid,
                                              job_uid=job_uid)
+                file_paths.append(path)
             header = (("type"), ("path"))
-            values = ((parsed_args.type), (path))
+            values = ((parsed_args.type), (file_paths))
 
         elif parsed_args.type == "bilingual":
             _job_ids = []
@@ -274,8 +278,9 @@ class DownloadJob(ShowOne):
                                           project_uid=parsed_args.project_uid,
                                           body={"jobs": _job_ids},
                                           format=parsed_args.bilingual_format)
+            file_paths.append(path)
             header = (("type"), ("format"), ("path"))
             values = ((parsed_args.type),
-                      (parsed_args.bilingual_format), (path))
+                      (parsed_args.bilingual_format), (file_paths))
 
         return((header), (values))
