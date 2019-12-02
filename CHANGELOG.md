@@ -1,5 +1,25 @@
 ## Change log
 
+### Version 0.3.1
+
+Fixed #15 [BUG] 'charmap' error on bilingual download  
+[0.3.1] memsource job download can work on multiple job_uids  
+[0.3.1] force directory creation with --output-dir on job download  
+
+Added new features such as
+
+- [Job file download (multiple job_uids)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-multiple-job_uids)
+- [Job file download (all job_uids within project)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-all-job_uids-within-project)
+
+
+### Version 0.3
+
+[0.3] Adding feature project template list  
+[0.3] Move memsource `project template create` to `project create --template-id`  
+
+- [Template list](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Template#template-list)  
+
+
 ### Version 0.2.10
 
 [0.2.10] Adding feature template show  
@@ -16,7 +36,7 @@ Added new features such as
 [0.2.9] Add Translation pre-translate option  
 [0.2.9] Customized output directory for file downloads  
 [0.2.9] Fix to datetime JSON serialization  
-[0.2.9] Minor fix: invalid JSON in references in memsource project list 
+[0.2.9] Minor fix: invalid JSON in references in memsource project list  
 
 Added features such as
 
@@ -29,11 +49,11 @@ Fixed #6 [BUG] A CLI returns invalid JSON with single-quotes bug low triaged
 
 ### Version 0.2.6
 
-- [Job file download (bilingual MXLF)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-file-download-bilingual-mxlf)
-- [Job file download (bilingual XLIFF)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-file-download-bilingual-xliff)
-- [Job file download (bilingual DOCX)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-file-download-bilingual-docx)
-- [Job file download (target)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-file-download-target)
-- [Job file download (original)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-file-download-original)
+- [Job file download (bilingual MXLF)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-bilingual-mxlf)
+- [Job file download (bilingual XLIFF)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-bilingual-xliff)
+- [Job file download (bilingual DOCX)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-bilingual-docx)
+- [Job file download (target)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-target)
+- [Job file download (original)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-original)
 
 ### Version 0.2.5
 
