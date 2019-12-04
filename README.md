@@ -313,6 +313,7 @@ This way you can configure your username/password and set up memsource token for
 
 ```
 source ${HOME}/git/memsource-cli-client/.memsource/bin/activate
+export MEMSOURCE_URL="https://cloud.memsource.com/web"
 export MEMSOURCE_USERNAME=<username>
 export MEMSOURCE_PASSWORD=<password>
 export MEMSOURCE_TOKEN=$(memsource auth login --user-name $MEMSOURCE_USERNAME --password "${MEMSOURCE_PASSWORD}" -c token -f value)
@@ -323,6 +324,7 @@ Or you can create a file:
 Edit file with `vi ~/.memsourcerc` and paste following content:
 ```
 source ${HOME}/git/memsource-cli-client/.memsource/bin/activate
+export MEMSOURCE_URL="https://cloud.memsource.com/web"
 export MEMSOURCE_USERNAME=<username>
 export MEMSOURCE_PASSWORD=<password>
 export MEMSOURCE_TOKEN=$(memsource auth login --user-name $MEMSOURCE_USERNAME --password "${MEMSOURCE_PASSWORD}" -c token -f value)
