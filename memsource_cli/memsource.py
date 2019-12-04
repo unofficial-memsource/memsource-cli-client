@@ -55,6 +55,13 @@ class MemsourceCli(App):
             default=utils.env('MEMSOURCE_TOKEN'),
             help='Authentication token (Env: MEMSOURCE_TOKEN)'
         )
+        parser.add_argument(
+            '--ms-auth-url',
+            action="store",
+            metavar='<auth-url>',
+            default=utils.env('MEMSOURCE_URL'),
+            help='Authentication URL (Env: MEMSOURCE_URL)'
+        )
 
         return parser
 
@@ -65,6 +72,8 @@ class MemsourceCli(App):
             self.configuration.debug = True
         if self.options.log_file:
             self.configuration.logger_file = self.options.log_file
+        if self.options.ms_auth_url:
+            self.configuration.host = self.options.ms_auth_url
 
         if not self.options.ms_token:
             if not self.options.ms_username:

@@ -56,7 +56,7 @@ class CreateJob(Lister):
             _filename = file.split("/")[-1]
             _file = open(file, 'rb')
             response = requests.post(
-                utils._url('v1', '/projects/'
+                utils._url(self, 'v1', '/projects/'
                            + parsed_args.project_uid
                            + '/jobs'
                            + '?token='

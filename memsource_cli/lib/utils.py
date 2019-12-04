@@ -8,8 +8,6 @@ import sys
 import re
 import datetime
 
-API_URL = 'https://cloud.memsource.com/web/api2/'
-
 
 def env(*vars, **kwargs):
     """Search for the first defined of possibly many env vars
@@ -45,8 +43,8 @@ def validate_response(response, status_code):
         sys.exit()
 
 
-def _url(api_version, path):
-    return API_URL + ''.join(api_version) + path
+def _url(self, api_version, path):
+    return self.app.configuration.host + '/api2/' + ''.join(api_version) + path
 
 
 def _print_output(response):
