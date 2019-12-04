@@ -66,12 +66,23 @@ Version 0.3.1 (Pending for release)
 Fixed #15 [BUG] 'charmap' error on bilingual download  
 [0.3.1] memsource job download can work on multiple job_uids  
 [0.3.1] force directory creation with --output-dir on job download  
+[0.3.1] Add Memsource custom base url
 
 Added new features such as
 
 - [Job file download (multiple job_uids)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-multiple-job_uids)
 - [Job file download (all job_uids within project)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-all-job_uids-within-project)
 
+Option to use custom URL:
+
+````
+  --ms-auth-url <auth-url>
+                        Authentication URL (Env: MEMSOURCE_URL)
+````
+or add to your `memsourcerc` file:
+````
+export MEMSOURCE_URL="https://cloud.memsource.com/web"
+````
 
 Version 0.3
 
