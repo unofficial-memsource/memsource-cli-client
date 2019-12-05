@@ -62,8 +62,8 @@ Framework will download additional packages:
 ## What's new
 
 Version 0.3.1  
-FIXED #19 [BUG] List users  
-FIXED #12 [BUG] Assign jobs to poviders  
+Fixed #19 [BUG] List users  
+Fixed #12 [BUG] Assign jobs to poviders  
 Fixed #15 [BUG] 'charmap' error on bilingual download  
 [0.3.1] Add new command 'memsource use list'  
 [0.3.1] Add new command 'memsource job edit'  
