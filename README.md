@@ -62,12 +62,11 @@ Framework will download additional packages:
 ## What's new
 
 Version 0.3.1  
-FIXED #19 [BUG] List users 
-FIXED #12 [BUG] Assign jobs to poviders
+FIXED #19 [BUG] List users  
+FIXED #12 [BUG] Assign jobs to poviders  
 Fixed #15 [BUG] 'charmap' error on bilingual download  
-[0.3.1] Add new command 'memsource use list' 
-[0.3.1] Add new command 'memsource job edit' 
-
+[0.3.1] Add new command 'memsource use list'  
+[0.3.1] Add new command 'memsource job edit'  
 [0.3.1] memsource job download can work on multiple job_uids  
 [0.3.1] force directory creation with --output-dir on job download  
 [0.3.1] Add Memsource custom base url
