@@ -61,7 +61,12 @@ Framework will download additional packages:
 <a id="markdown-whatsnew" name="whatsnew"></a>
 ## What's new
 
-Version 0.3.1  
+Version 0.3.2
+
+[0.3.2] Fixed user.py syntax error for python2
+
+Version 0.3.1
+
 Fixed #19 [BUG] List users  
 Fixed #12 [BUG] Assign jobs to poviders  
 Fixed #15 [BUG] 'charmap' error on bilingual download  
