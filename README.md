@@ -61,7 +61,7 @@ Framework will download additional packages:
 <a id="markdown-whatsnew" name="whatsnew"></a>
 ## What's new
 
-Version 0.3.1 (Pending for release)
+Version 0.3.1  
 FIXED #19 [BUG] List users 
 FIXED #12 [BUG] Assign jobs to poviders
 Fixed #15 [BUG] 'charmap' error on bilingual download  
