@@ -73,10 +73,8 @@ Fixed #15 [BUG] 'charmap' error on bilingual download
 [0.3.1] Add Memsource custom base url
 
 Added new features such as
-- 
-
-- 
-
+- [Job edit](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-edit)
+- [User list](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-User#user-list)
 - [Job file download (multiple job_uids)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-multiple-job_uids)
 - [Job file download (all job_uids within project)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-all-job_uids-within-project)
 
