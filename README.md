@@ -62,13 +62,20 @@ Framework will download additional packages:
 ## What's new
 
 Version 0.3.1 (Pending for release)
-
+FIXED #19 [BUG] List users 
+FIXED #12 [BUG] Assign jobs to poviders
 Fixed #15 [BUG] 'charmap' error on bilingual download  
+[0.3.1] Add new command 'memsource use list' 
+[0.3.1] Add new command 'memsource job edit' 
+
 [0.3.1] memsource job download can work on multiple job_uids  
 [0.3.1] force directory creation with --output-dir on job download  
 [0.3.1] Add Memsource custom base url
 
 Added new features such as
+- 
+
+- 
 
 - [Job file download (multiple job_uids)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-multiple-job_uids)
 - [Job file download (all job_uids within project)](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-download-all-job_uids-within-project)
@@ -168,6 +175,7 @@ $ memsource --help
 usage: memsource [--version] [-v | -q] [--log-file LOG_FILE] [-h] [--debug]
                  [--ms-username <auth-username>]
                  [--ms-password <auth-password>] [--ms-token <auth-token>]
+                 [--ms-auth-url <auth-url>]
 
 Unofficial Memsource CLI client
 
@@ -184,6 +192,8 @@ optional arguments:
                         Authentication password (Env: MEMSOURCE_PASSWORD)
   --ms-token <auth-token>
                         Authentication token (Env: MEMSOURCE_TOKEN)
+  --ms-auth-url <auth-url>
+                        Authentication URL (Env: MEMSOURCE_URL)
 
 Commands:
   analyse create  Create analysis
@@ -198,6 +208,7 @@ Commands:
   job create     Creates job in project
   job delete     Delete jobs
   job download   Download job file
+  job edit       Edit job
   job list       List jobs in project
   job show       Get job
   job translations delete  Delete translations
@@ -210,6 +221,8 @@ Commands:
   translation pre-translate  Pre-translate job
   user create    Create user
   user get       Get user
+  user list      List users
+
 ```
 
 <a id="markdown-getting-started" name="getting-started"></a>
