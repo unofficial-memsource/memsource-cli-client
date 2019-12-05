@@ -745,7 +745,7 @@ class JobApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_uid', 'job_uid', 'body']  # noqa: E501
+        all_params = ['project_uid', 'job_uid', 'body', 'token']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -778,6 +778,9 @@ class JobApi(object):
             path_params['jobUid'] = params['job_uid']  # noqa: E501
 
         query_params = []
+        if 'token' in params:
+            query_params.append(('token', params['token'])) # noqa: E501
+
 
         header_params = {}
 

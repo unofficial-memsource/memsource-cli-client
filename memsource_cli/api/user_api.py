@@ -376,7 +376,7 @@ class UserApi(object):
                  returns the request thread.
         """
 
-        all_params = ['user_name', 'email', 'role', 'include_deleted', 'page_number', 'page_size']  # noqa: E501
+        all_params = ['user_name', 'email', 'role', 'include_deleted', 'page_number', 'page_size', 'token']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -428,6 +428,7 @@ class UserApi(object):
             query_params.append(('pageNumber', params['page_number']))  # noqa: E501
         if 'page_size' in params:
             query_params.append(('pageSize', params['page_size']))  # noqa: E501
+        query_params.append(('token', params['token'])) # noqa: E501
 
         header_params = {}
 
