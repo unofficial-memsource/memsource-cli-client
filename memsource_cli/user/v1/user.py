@@ -54,8 +54,7 @@ class ListUser(Lister):
             if k in all_params and v is not None:
                 args[k] = v
 
-        response = api.get_list_of_users_filtered(**args,
-                                                  token=self.app.client.configuration.token)
+        response = api.get_list_of_users_filtered(token=self.app.client.configuration.token,**args)
         
         output = response.to_dict()
         content = output['content']
