@@ -14,14 +14,30 @@
 from __future__ import absolute_import
 
 import copy
-import os
 import logging
 import multiprocessing
+import os
+import re
 import sys
-import urllib3
 
 import six
+import urllib3
 from six.moves import http_client as httplib
+
+
+class RedactingFormatter(object):
+    def __init__(self, orig_formatter, patterns):
+        self.orig_formatter = orig_formatter
+        self._patterns = patterns
+
+    def format(self, record):
+        msg = self.orig_formatter.format(record)
+        for pattern in self._patterns:
+            msg = re.sub(pattern+r'=\w+', pattern+'=******', msg)
+        return msg
+
+    def __getattr__(self, attr):
+        return getattr(self.orig_formatter, attr)
 
 
 class Configuration(object):
@@ -164,8 +180,12 @@ class Configuration(object):
             # if debug status is True, turn on debug logging
             for _, logger in six.iteritems(self.logger):
                 logger.setLevel(logging.DEBUG)
-            # turn on httplib debug
-            httplib.HTTPConnection.debuglevel = 1
+            # disable httplib debug as of now
+            httplib.HTTPConnection.debuglevel = 0
+            # hide token
+            self.logger_stream_handler.setFormatter(
+                RedactingFormatter(self.logger_formatter, patterns=['token']))
+
         else:
             # if debug status is False, turn off debug logging,
             # setting log level to default `logging.WARNING`
