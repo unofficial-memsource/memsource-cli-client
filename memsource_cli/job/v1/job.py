@@ -10,6 +10,7 @@ import requests
 
 import memsource_cli
 from cliff import command
+from cliff import help
 from cliff.lister import Lister
 from cliff.show import ShowOne
 from memsource_cli.lib import utils
@@ -282,6 +283,7 @@ class DownloadJob(ShowOne):
         )
         parser.add_argument(
             '--job-id',
+            required=True,
             help='job_uid',
             dest='job_uid',
             nargs='+',
