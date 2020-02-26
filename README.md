@@ -63,8 +63,8 @@ Framework will download additional packages:
 
 Version 0.3.3
 
-Fixed #20 memsource job create --debug displays empty output
-Fixed #23 memsource job download didn't display help
+Fixed #20 memsource job create --debug displays empty output  
+Fixed #23 memsource job download didn't display help  
 
 Version 0.3.2
 
