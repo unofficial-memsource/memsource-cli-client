@@ -32,6 +32,7 @@ class CreateJob(Lister):
         parser.add_argument(
             '--project-id',
             help='project_uid',
+            required=True,
             dest='project_uid',
         )
         parser.add_argument(
