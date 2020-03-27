@@ -663,7 +663,7 @@ class TranslationMemoryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['async_request_id', 'format']  # noqa: E501
+        all_params = ['async_request_id', 'format', 'token']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -692,6 +692,8 @@ class TranslationMemoryApi(object):
         query_params = []
         if 'format' in params:
             query_params.append(('format', params['format']))  # noqa: E501
+        if 'token' in params:
+            query_params.append(('token', params['token']))  # noqa: E501
 
         header_params = {}
 
@@ -867,7 +869,7 @@ class TranslationMemoryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['trans_memory_id', 'format', 'target_lang']  # noqa: E501
+        all_params = ['trans_memory_id', 'format', 'target_lang', 'token', 'async_req']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -899,6 +901,10 @@ class TranslationMemoryApi(object):
         if 'target_lang' in params:
             query_params.append(('targetLang', params['target_lang']))  # noqa: E501
             collection_formats['targetLang'] = 'multi'  # noqa: E501
+        if 'token' in params:
+            query_params.append(('token', params['token']))  # noqa: E501
+        if 'async_req' in params:
+            query_params.append(('async_req', params['async_req']))  # noqa: E501
 
         header_params = {}
 
@@ -1908,7 +1914,7 @@ class TranslationMemoryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['name', 'source_lang', 'target_lang', 'client_id', 'domain_id', 'sub_domain_id', 'business_unit_id', 'page_number', 'page_size']  # noqa: E501
+        all_params = ['name', 'source_lang', 'target_lang', 'client_id', 'domain_id', 'sub_domain_id', 'business_unit_id', 'page_number', 'page_size', 'token']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1947,6 +1953,8 @@ class TranslationMemoryApi(object):
             query_params.append(('pageNumber', params['page_number']))  # noqa: E501
         if 'page_size' in params:
             query_params.append(('pageSize', params['page_size']))  # noqa: E501
+        if 'token' in params:
+            query_params.append(('token', params['token']))  # noqa: E501
 
         header_params = {}
 

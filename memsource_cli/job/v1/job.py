@@ -89,6 +89,7 @@ class CreateJob(Lister):
         return((column_headers), (
                (s) for s in data))
 
+
 class EditJob(ShowOne):
     """
     Edit job
@@ -102,7 +103,7 @@ class EditJob(ShowOne):
             help='project_uid',
             dest='project_uid',
             required=True
-        ) 
+        )
         parser.add_argument(
             '--job-id',
             help='job_uid',
@@ -138,11 +139,76 @@ class EditJob(ShowOne):
             provider_type = provider[0]
             provider_id = provider[1]
             _providers.append({'type': provider_type, 'id': provider_id})
-            
+
+            # _jobs = []
+            # for i in parsed_args.jobs:
+            #     _jobs.append({'uid': i})
+
         response = api.edit_part(token=self.app.client.configuration.token,
                                  project_uid=parsed_args.project_uid,
                                  job_uid=parsed_args.job_uid,
                                  body={"status": parsed_args.status, "providers": _providers, "dateDue": parsed_args.date_due})
+        return utils._print_output(response)
+
+
+class EditJobs(ShowOne):
+    """
+    Edit jobs
+    """
+
+    def get_parser(self, prog_name):
+        """Command argument parsing."""
+        parser = super(EditJobs, self).get_parser(prog_name)
+        parser.add_argument(
+            '--project-id',
+            help='project_uid',
+            dest='project_uid',
+            required=True
+        )
+        parser.add_argument(
+            '--jobs',
+            help='jobs',
+            dest='jobs',
+            nargs='+',
+            default=[]
+        )
+        parser.add_argument(
+            '--status',
+            help='status',
+            dest='status',
+            required=True
+        )
+        parser.add_argument(
+            '--date-due',
+            help='date_due',
+            dest='date_due',
+        )
+        parser.add_argument(
+            '--providers',
+            help='providers',
+            dest='providers',
+            nargs='+',
+            default=[]
+        )
+        return parser
+
+    def take_action(self, parsed_args):
+        api = memsource_cli.JobApi(self.app.client)
+
+        _providers = []
+        for i in parsed_args.providers:
+            provider = i.split('=')
+            provider_type = provider[0]
+            provider_id = provider[1]
+            _providers.append({'type': provider_type, 'id': provider_id})
+
+        _jobs = []
+        for i in parsed_args.jobs:
+            _jobs.append({'uid': i})
+
+        response = api.edit_parts(token=self.app.client.configuration.token,
+                                  project_uid=parsed_args.project_uid,
+                                  body={"status": parsed_args.status, "providers": _providers, "dateDue": parsed_args.date_due, "jobs": _jobs})
         return utils._print_output(response)
 
 
