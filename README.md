@@ -69,7 +69,7 @@ Added new features such as
 - [Import segments](https://github.com/unofficial-memsource/memsource-cli-client/wiki/)
 - [List Translation Memories](https://github.com/unofficial-memsource/memsource-cli-client/wiki/)
 - [Wildcard Search Translation Memory](https://github.com/unofficial-memsource/memsource-cli-client/wiki/)
-- [Edit jobs](https://github.com/unofficial-memsource/memsource-cli-client/wiki/)
+- [Edit jobs](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#jobs-edit)
 
 Version 0.3.3
 
