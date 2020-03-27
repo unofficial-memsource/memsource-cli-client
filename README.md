@@ -64,11 +64,11 @@ Framework will download additional packages:
 Version 0.3.4
 
 Added new features such as 
-- [Download Translation Memory](https://github.com/unofficial-memsource/memsource-cli-client/wiki/)
-- [Export Translation Memory](https://github.com/unofficial-memsource/memsource-cli-client/wiki/)  
-- [Import segments](https://github.com/unofficial-memsource/memsource-cli-client/wiki/)
-- [List Translation Memories](https://github.com/unofficial-memsource/memsource-cli-client/wiki/)
-- [Wildcard Search Translation Memory](https://github.com/unofficial-memsource/memsource-cli-client/wiki/)
+- [Download Translation Memory](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Translation-Memory#translation-memory-download)
+- [Export Translation Memory](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Translation-Memory#translation-memory-export)  
+- [Import segments](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Translation-Memory#translation-memory-import)
+- [List Translation Memories](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Translation-Memory#translation-memory-list)
+- [Wildcard Search Translation Memory](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Translation-Memory#translation-memory-search)
 - [Edit jobs](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#jobs-edit)
 
 Version 0.3.3
