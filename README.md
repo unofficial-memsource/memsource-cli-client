@@ -229,17 +229,22 @@ Commands:
   job list       List jobs in project
   job show       Get job
   job translations delete  Delete translations
+  jobs edit      Edit jobs
   project create  Create new project
   project delete  Deletes a project
   project list   List projects
   project show   Get project
   template list  List templates
   template show  Show template
+  translation memory download  Download Translation Memory
+  translation memory export  Export Translation Memory
+  translation memory import  Import segments
+  translation memory list  List Translation Memories
+  translation memory search  Wildcard Search Translation Memory
   translation pre-translate  Pre-translate job
   user create    Create user
   user get       Get user
   user list      List users
-
 ```
 
 <a id="markdown-getting-started" name="getting-started"></a>
