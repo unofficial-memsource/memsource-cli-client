@@ -10,7 +10,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=unofficial-memsource_memsource-cli-client&metric=alert_status)](https://sonarcloud.io/dashboard?id=unofficial-memsource_memsource-cli-client)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ddaee7e9ca2f429cb2474cdf441ef166)](https://www.codacy.com/manual/zerodayz/memsource-cli-client?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=unofficial-memsource/memsource-cli-client&amp;utm_campaign=Badge_Grade)
 
-<img src="docs/Cloudy_shell.png" border=0 align="right">
+<img src="docs/memsource-logo.png" border=0 align="right">
 
 **Table of contents**
 <!-- TOC depthFrom:1 insertAnchor:true orderedList:true -->
