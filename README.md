@@ -374,6 +374,11 @@ source ~/.memsourcerc
 Requirements:
 - `jq`
 
+## How to install in RHEL/CentOS
+```
+sudo yum -y install jq
+```
+
 ## Autocompletion
 To add autocompletion to your shell so you can type:
 
