@@ -235,6 +235,7 @@ Commands:
   job show       Get job
   job translations delete  Delete translations
   jobs edit      Edit jobs
+  project assign providers  Assigns providers from template
   project create  Create new project
   project delete  Deletes a project
   project list   List projects
