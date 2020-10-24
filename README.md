@@ -61,6 +61,10 @@ Framework will download additional packages:
 <a id="markdown-whatsnew" name="whatsnew"></a>
 ## What's new
 
+Version 0.3.6
+Added new feature such as
+- [Assign Providers from Template](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Project#project-assign-providers-from-template)
+
 Version 0.3.4
 
 Added new features such as 
