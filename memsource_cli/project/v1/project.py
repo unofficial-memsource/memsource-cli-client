@@ -101,6 +101,35 @@ class CreateProject(ShowOne):
         return utils._print_output(response)
 
 
+class AssignsProvidersFromTemplate(command.Command):
+    """
+    Assigns providers from template
+    """
+
+    def get_parser(self, prog_name):
+        """Command argument parsing."""
+        parser = super(AssignsProvidersFromTemplate, self).get_parser(prog_name)
+        parser.add_argument(
+            '--project-id',
+            action='store',
+            dest='project_uid',
+            help='project_uid'
+        )
+        parser.add_argument(
+            '--template-id',
+            action='store',
+            dest='template_id',
+            help='template_id'
+        )
+        return parser
+
+    def take_action(self, parsed_args):
+        api = memsource_cli.ProjectApi(self.app.client)
+        api.assign_linguists_from_template(token=self.app.client.configuration.token,
+                           project_uid=parsed_args.project_uid,
+                           template_id=parsed_args.template_id)
+
+
 class DeleteProject(command.Command):
     """
     Deletes a project
