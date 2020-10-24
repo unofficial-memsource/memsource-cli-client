@@ -113,13 +113,15 @@ class AssignsProvidersFromTemplate(command.Command):
             '--project-id',
             action='store',
             dest='project_uid',
-            help='project_uid'
+            help='project_uid',
+            required=True
         )
         parser.add_argument(
             '--template-id',
             action='store',
             dest='template_id',
-            help='template_id'
+            help='template_id',
+            required=True
         )
         return parser
 
