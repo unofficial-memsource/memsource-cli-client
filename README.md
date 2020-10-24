@@ -62,7 +62,7 @@ Framework will download additional packages:
 ## What's new
 
 Version 0.3.6
-Added new feature such as
+Added new feature such as  
 - [Assign Providers from Template](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Project#project-assign-providers-from-template)
 
 Version 0.3.4
