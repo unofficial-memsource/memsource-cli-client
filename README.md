@@ -23,9 +23,11 @@
 - [Collaborate](#collaborate)
 - [Usage](#usage)
 - [Getting Started](#getting-started)
-- [Install from PyPI](#pip-install)
-- [Install from Github](#github-install)
-- [Configuration](#configuration)
+- [Install from PyPI (Red Hat Enterprise Linux derivatives)](#pip-install)
+- [Install from PyPI (Windows)](#pip-install-win)
+- [Install from Github (Red Hat Enterprise Linux derivatives)](#github-install)
+- [Configuration (Red Hat Enterprise Linux derivatives)](#configuration)
+- [Configuration (Windows)](#configuration-win)
 - [Contact us!](#contact-us)
 
 <!-- /TOC -->
@@ -259,7 +261,7 @@ Requirements for python2 environments:
 - package `python-virtualenv`
 
 <a id="markdown-pip-install" name="pip-install"></a>
-### Install from PyPI
+### Install from PyPI (Red Hat Enterprise Linux derivatives)
 
 ```
 DIRECTORY="${HOME}/git/memsource-cli-client/"
@@ -288,8 +290,32 @@ clear
 memsource --help
 ```
 
+<a id="markdown-pip-install" name="pip-install-win"></a>
+### Install from PyPI (Windows)
+
+- Download the executable for Python 3.7.0 from [here](https://www.python.org/ftp/python/3.7.0/python-3.7.0-amd64.exe)
+- Run the executable
+- Make sure you select the **Install launcher for all users** and **Add Python 3.7 to PATH** checkboxes.
+- Make sure to **Disable path length limit**.
+- Open up a terminal **Command Prompt**
+- Type `python --version`
+You should see:
+```
+C:\Users\Robin>python --version
+Python 3.7.0
+```
+- Run following to create virtual environment and install memsource-cli
+```
+md %systemdrive%%homepath%\VirtualEnvironments
+cd %systemdrive%%homepath%\VirtualEnvironments
+python -m venv memsource
+.\memsource\Scripts\activate
+%systemdrive%%homepath%\VirtualEnvironments\memsource\scripts\python.exe -m pip install --upgrade pip setuptools
+%systemdrive%%homepath%\VirtualEnvironments\memsource\scripts\python.exe -m pip install memsource-cli
+```
+
 <a id="markdown-github-install" name="github-install"></a>
-### Install from Github
+### Install from Github (Red Hat Enterprise Linux derivatives)
 ```
 DIRECTORY="$HOME/git/"
 
@@ -349,7 +375,7 @@ memsource --help
 And that's it!
 
 <a id="markdown-configuration" name="configuration"></a>
-## Configuration
+## Configuration (Red Hat Enterprise Linux derivatives)
 This way you can configure your username/password and set up memsource token for faster authentication:
 
 ```
@@ -383,6 +409,25 @@ Requirements:
 ## How to install in RHEL/CentOS
 ```
 sudo yum -y install jq
+```
+
+<a id="markdown-configuration" name="configuration-win"></a>
+## Configuration (Windows)
+
+Now you can create a `memsourcerc.bat` script with following to start using your `memsource-cli`
+```
+@echo off
+SET MEMSOURCE_URL=https://cloud.memsource.com/web
+SET MEMSOURCE_USERNAME="username"
+SET MEMSOURCE_PASSWORD="password"
+cd %systemdrive%%homepath%\VirtualEnvironments
+.\memsource\Scripts\activate && memsource auth login --user-name %MEMSOURCE_USERNAME% --password %MEMSOURCE_PASSWORD% -c token -f value >> tmp.txt && SET /p MEMSOURCE_TOKEN=<tmp.txt && DEL tmp.txt
+```
+
+Then only call that file to start using memsource-cli:
+
+```
+.\memsourcerc.bat
 ```
 
 ## Autocompletion
