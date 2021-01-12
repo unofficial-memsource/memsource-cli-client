@@ -293,6 +293,93 @@ class DeleteJobs(command.Command):
                          body={"jobs": _job_ids})
 
 
+class SourceUpdateJob(Lister):
+    """
+    Source Update job
+    """
+
+    def get_parser(self, prog_name):
+        parser = super(SourceUpdateJob, self).get_parser(prog_name)
+        parser.add_argument(
+            '--filename',
+            help='filename',
+            dest='filename'
+        )
+        parser.add_argument(
+            '--project-id',
+            help='project_uid',
+            dest='project_uid'
+        )
+        parser.add_argument(
+            '--jobs',
+            help='job_uids',
+            dest='job_uid',
+            nargs='+',
+            default=[]
+        )
+        parser.add_argument(
+            '--pre-translate',
+            help='pre_translate',
+            dest='pre_translate',
+            action="store_true"
+        )
+        parser.add_argument(
+            '--callback-url',
+            help='callback_url',
+            dest='callback_url',
+            default=''
+        )
+        return parser
+
+    def take_action(self, parsed_args):
+
+        token = self.app.client.configuration.token
+        data = []
+
+        _jobs = []
+        for i in parsed_args.job_uid:
+            _jobs.append({'uid': i})
+
+        file = parsed_args.filename
+        _filename = file.split("/")[-1]
+        _file = open(file, 'rb')
+        _memsource = {
+            "jobs": _jobs,
+            "preTranslate": parsed_args.pre_translate,
+            "callbackUrl": parsed_args.callback_url
+        }
+
+        response = requests.post(utils._url(self, 'v1', '/projects/'
+         + parsed_args.project_uid
+         + '/jobs/source'
+         + '?token='
+         + token),
+        headers={
+           'Content-Type': 'application/octet-stream',
+           'Content-Disposition': 'filename='
+           + _filename,
+           'Memsource': json.dumps(_memsource)
+        },
+        data=_file
+        )
+
+        column_headers = ('async_request_id', 'action', 'date_created', 'uid', 'filename', 'status', 'target_lang', 'workflow_level', 'workflow_step')
+        utils.validate_response(response, 200)
+        output = json.loads(response.text)
+        data += [(output['asyncRequest']['id'],
+                 output['asyncRequest']['action'],
+                 output['asyncRequest']['dateCreated'],
+                 output['jobs'][i]['uid'],
+                 output['jobs'][i]['filename'],
+                 output['jobs'][i]['status'],
+                 output['jobs'][i]['targetLang'],
+                 output['jobs'][i]['workflowLevel'],
+                 output['jobs'][i]['workflowStep'])
+                 for i in range(0, len(output['jobs']))]
+
+        return((column_headers), ((s) for s in data))
+
+
 class ShowJob(ShowOne):
     """
     Get job
