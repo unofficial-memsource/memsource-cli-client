@@ -3698,6 +3698,117 @@ class JobApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def update_source(self, project_uid, **kwargs):  # noqa: E501
+        """Update source  # noqa: E501
+
+         API updated source file for specified job  Job file can be provided directly in the message body.   Please supply jobs in `Memsource` header.   For file in the request body provide also the filename in `Content-Disposition` header.  Accepted metadata:     - `jobs` - **required** - list of jobs UID reference (maximum size `1`)   - `preTranslate` - pre translate flag (default `false`)   - `callbackUrl` - consumer callback  Job restrictions:   - job must belong to project specified in path (`projectUid`)   - job `UID` must be from the first workflow step   - job cannot be split   - job cannot be continuous   - job cannot be multilingual   - job cannot originate in a connector   - status in any of the job's workflow steps cannot be a final status (`COMPLETED_BY_LINGUIST`, `COMPLETED`, `CANCELLED`)    File restrictions:   - file cannot be a `.zip` file    Example:    ``` {   \"jobs\": [     {         \"uid\": \"jobIn1stWfStepAndNonFinalStatusUid\"     }   ],   \"preTranslate\": \"false\",   \"callbackUrl\": \"https://my-shiny-service.com/consumeCallback\" } ```    # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_source(project_uid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str project_uid: (required)
+        :param str memsource:
+        :param str content_disposition: must match pattern `((inline|attachment); )?(filename\\*=UTF-8''(.+)|filename=\"?(.+)\"?)`
+        :param InputStream body:
+        :return: JobUpdateSourceResponseDto
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_source_with_http_info(project_uid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_source_with_http_info(project_uid, **kwargs)  # noqa: E501
+            return data
+
+    def update_source_with_http_info(self, project_uid, **kwargs):  # noqa: E501
+        """Update source  # noqa: E501
+
+         API updated source file for specified job  Job file can be provided directly in the message body.   Please supply jobs in `Memsource` header.   For file in the request body provide also the filename in `Content-Disposition` header.  Accepted metadata:     - `jobs` - **required** - list of jobs UID reference (maximum size `1`)   - `preTranslate` - pre translate flag (default `false`)   - `callbackUrl` - consumer callback  Job restrictions:   - job must belong to project specified in path (`projectUid`)   - job `UID` must be from the first workflow step   - job cannot be split   - job cannot be continuous   - job cannot be multilingual   - job cannot originate in a connector   - status in any of the job's workflow steps cannot be a final status (`COMPLETED_BY_LINGUIST`, `COMPLETED`, `CANCELLED`)    File restrictions:   - file cannot be a `.zip` file    Example:    ``` {   \"jobs\": [     {         \"uid\": \"jobIn1stWfStepAndNonFinalStatusUid\"     }   ],   \"preTranslate\": \"false\",   \"callbackUrl\": \"https://my-shiny-service.com/consumeCallback\" } ```    # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_source_with_http_info(project_uid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str project_uid: (required)
+        :param str memsource:
+        :param str content_disposition: must match pattern `((inline|attachment); )?(filename\\*=UTF-8''(.+)|filename=\"?(.+)\"?)`
+        :param InputStream body:
+        :return: JobUpdateSourceResponseDto
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['project_uid', 'memsource', 'content_disposition', 'body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_source" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'project_uid' is set
+        if ('project_uid' not in params or
+                params['project_uid'] is None):
+            raise ValueError("Missing the required parameter `project_uid` when calling `update_source`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'project_uid' in params:
+            path_params['projectUid'] = params['project_uid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+        if 'memsource' in params:
+            header_params['Memsource'] = params['memsource']  # noqa: E501
+        if 'content_disposition' in params:
+            header_params['Content-Disposition'] = params['content_disposition']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api2/v1/projects/{projectUid}/jobs/source', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='JobUpdateSourceResponseDto',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def upload_bilingual_file(self, **kwargs):  # noqa: E501
         """Upload bilingual file  # noqa: E501
 
