@@ -63,6 +63,11 @@ Framework will download additional packages:
 <a id="markdown-whatsnew" name="whatsnew"></a>
 ## What's new
 
+Version 0.3.7
+
+Added new feature such as
+- [Job Source Update](https://github.com/unofficial-memsource/memsource-cli-client/wiki/Memsource-Jobs#job-source-update)
+
 Version 0.3.6
 
 Added new feature such as  
