@@ -72,6 +72,7 @@ class ListJobs(Lister):
         response = api.list_parts_v2(token=self.app.client.configuration.token,
                                      **args)
 
+        column_pages = ['total_elements', 'total_pages', 'page_size', 'page_number', 'number_of_elements']
         column_headers = ['uid', 'status', 'providers',
                           'target_lang', 'workflow_step', 'filename',
                           'date_due', 'date_created', 'imported', 'continuous']
@@ -80,6 +81,13 @@ class ListJobs(Lister):
 
         output = response.to_dict()
         content = output['content']
+
+        meta = [(output['total_elements'], output['total_pages'], output['page_size'], output['page_number'],
+                 output['number_of_elements'])]
+
+        for column in parsed_args.columns:
+            if column in column_pages:
+                return (column_pages), (meta)
 
         for i in range(0, len(content)):
             for j in column_headers:
