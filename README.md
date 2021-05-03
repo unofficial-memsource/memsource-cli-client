@@ -63,6 +63,10 @@ Framework will download additional packages:
 <a id="markdown-whatsnew" name="whatsnew"></a>
 ## What's new
 
+Version 0.3.8
+
+Fixed #25 and #26 [FEATURE] Added metadata such as `total_pages` and others into job list output
+
 Version 0.3.7
 
 Added new feature such as
