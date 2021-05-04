@@ -26,6 +26,7 @@
 - [Install from PyPI (Red Hat Enterprise Linux derivatives)](#pip-install)
 - [Install from PyPI (Windows)](#pip-install-win)
 - [Install from Github (Red Hat Enterprise Linux derivatives)](#github-install)
+- [Install from Github (Older Fedora with Python2)](#github-install-python2)
 - [Configuration (Red Hat Enterprise Linux derivatives)](#configuration)
 - [Configuration (Windows)](#configuration-win)
 - [Contact us!](#contact-us)
@@ -384,7 +385,7 @@ memsource --help
 And that's it!
 
 
-<a id="markdown-github-install" name="github-install"></a>
+<a id="markdown-github-install-python2" name="github-install-python2"></a>
 ### Install from Github (Older Fedora with Python2 and Python 3.5)
 
 First you need to force install with Python 2
