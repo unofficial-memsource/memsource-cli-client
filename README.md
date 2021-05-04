@@ -383,6 +383,69 @@ memsource --help
 ```
 And that's it!
 
+
+<a id="markdown-github-install" name="github-install"></a>
+### Install from Github (Older Fedora with Python2 and Python 3.5)
+
+First you need to force install with Python 2
+
+```
+DIRECTORY="$HOME/git/"
+
+if [[ ! -d ${DIRECTORY} ]]; then
+  mkdir ${DIRECTORY}
+fi
+cd ${DIRECTORY}
+if [[ ! -d ${DIRECTORY}/memsource-cli-client ]]; then
+  git clone https://github.com/unofficial-memsource/memsource-cli-client.git
+  cd memsource-cli-client/
+  if [[ ! -f $(which virtualenv) ]];
+  then
+    sudo yum -y install python-virtualenv
+  fi
+  virtualenv --system-site-packages .memsource
+  for py in $(find memsource_cli -name "*.py"); do sed -i -e 's#/usr/bin/env python3#/usr/bin/env python#' $py; done
+  source .memsource/bin/activate
+  pip install -U pip
+  pip install -U setuptools
+  pip install -e .
+  deactivate
+else
+  cd memsource-cli-client/
+  rm -Rf .memsource
+  if [[ ! -f $(which virtualenv) ]];
+  then
+    sudo yum -y install python-virtualenv
+  fi
+  virtualenv --system-site-packages .memsource
+  for py in $(find memsource_cli -name "*.py"); do sed -i -e 's#/usr/bin/env python3#/usr/bin/env python#' $py; done
+  source .memsource/bin/activate
+  git checkout master
+  git reset --hard
+  git pull
+  for py in $(find memsource_cli -name "*.py"); do sed -i -e 's#/usr/bin/env python3#/usr/bin/env python#' $py; done
+  source .memsource/bin/activate
+  pip install -e .
+  deactivate
+fi
+source ${DIRECTORY}/memsource-cli-client/.memsource/bin/activate
+memsource --help
+```
+
+You may get the following error:
+
+```
+ERROR: Package 'setuptools' requires a different Python: 2.7.13 not in '>=3.5'
+````
+
+You need to downgrade setuptools in order to make it working with Python2:
+
+```
+pip install --upgrade 'setuptools<45.0.0'
+```
+
+And that's it! 
+
 <a id="markdown-configuration" name="configuration"></a>
 ## Configuration (Red Hat Enterprise Linux derivatives)
 This way you can configure your username/password and set up memsource token for faster authentication:
